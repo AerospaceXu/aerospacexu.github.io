@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="徐航宇的个人博客">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        MVC 与 Vue - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Love Code / Love Design </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/head.png" />
+        </div>
+        <div class="name">
+            <i>徐航宇</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MVC-%E4%B8%8E-Vue"><span class="toc-text">MVC 与 Vue</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#0-%E6%96%B0%E6%89%8B%E7%9A%84%E5%9B%B0%E6%83%91"><span class="toc-text">0 新手的困惑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%B8%80%E4%B8%AA-MVC-%E8%AE%A1%E6%95%B0%E5%99%A8"><span class="toc-text">1 一个 MVC 计数器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%99%AE%E9%80%9A%E7%89%88%E6%9C%AC-JS-%E8%AE%A1%E6%95%B0%E5%99%A8"><span class="toc-text">普通版本 JS 计数器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MVC-%E7%89%88%E6%9C%AC-JS-%E8%AE%A1%E6%95%B0%E5%99%A8"><span class="toc-text">MVC 版本 JS 计数器</span></a></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Love Code / Love Design </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        MVC 与 Vue
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-07-27 21:08:40</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#JavaScript" title="JavaScript">JavaScript</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <h1 id="MVC-与-Vue"><a href="#MVC-与-Vue" class="headerlink" title="MVC 与 Vue"></a>MVC 与 Vue</h1><p>本文写于 2020 年 7 月 27 日</p>
+<p>首先有个问题：Vue 是 MVC 还是 MVVM 框架？</p>
+<p>维基百科告诉我们：MVVM 是 PM 的变种，而 PM 又是 MVC 的变种。</p>
+<p>所以一定程度上来说，不管 Vue 是 MVC 还是 MVVM 或者都不是，它的思想方向与这些设计模式的方向是大体相同的。</p>
+<p>并且 Vue 的官网中也说道：“虽然没有完全遵循 MVVM 模型，但是 Vue 的设计也受到了它的启发。”</p>
+<p>这个问题网上吵得比较多，本文并不是来讨论这个问题的，而是面是向初学者浅浅的分析一下老大哥 <strong>MVC 的思想在 Vue 中的体现</strong>。</p>
+<h2 id="0-新手的困惑"><a href="#0-新手的困惑" class="headerlink" title="0 新手的困惑"></a>0 新手的困惑</h2><p>大学时候专业里前后开了几门网页课，先是教授 HTML、CCC；后来一门课教了 JS；最后有一门教授 Vue 的课。</p>
+<p>由于我大学读的并不是计算机专业，而是艺术类的数字媒体艺术专业。所以大家对于编程的热情度几乎是负的。</p>
+<p>上学期的 JS 都没学好，一听说要学 Vue，大家的内心自然是崩溃的。课程上来就是一段代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    message: <span class="string">&#x27;Hello Vue!&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>大家一开始的心声就是这样的：什么？！这是什么？谁看得懂！</p>
+<p>并且不光是初学者，一些写了一段时间 Vue 的人，懂得 el 是是什么、data 是什么，但可能也不清楚<strong>为什么 Vue 要这么来组织代码——除非他学过 MVC</strong>。</p>
+<h2 id="1-一个-MVC-计数器"><a href="#1-一个-MVC-计数器" class="headerlink" title="1 一个 MVC 计数器"></a>1 一个 MVC 计数器</h2><p>一个 MVC 模块是三个对象的合体：M, V, C。</p>
+<ul>
+<li>M，即为 Model，代表数据；</li>
+<li>V，即为 View，代表视图；</li>
+<li>C，即为 Controller，代表控制（业务逻辑）。</li>
+</ul>
+<p>严格来说……MCV 没有严格来说，MVC 的定义并不明确，所以我以为 MVC 其实是一种思想方向，代表着视图和业务逻辑互不干扰。</p>
+<p>还是那句话，放码过来。我们先实现一个非常常见的例子：加按钮与减按钮。</p>
+<h3 id="普通版本-JS-计数器"><a href="#普通版本-JS-计数器" class="headerlink" title="普通版本 JS 计数器"></a>普通版本 JS 计数器</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span>&gt;</span>0<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;add&quot;</span>&gt;</span>+<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;minus&quot;</span>&gt;</span>-<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>我们希望的结果是，当我们点击 + 号时，<code>&lt;span&gt;</code> 中的数字就会 +1，点击 - 号时，同理就会 -1。</p>
+<p>我相信这种 JS 代码应该是信手拈来的对吧。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> numberWrapper = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#app span&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> addBtn = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#add&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> minusBtn = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#minus&#x27;</span>);</span><br><span class="line"></span><br><span class="line">addBtn.addEventListener(<span class="string">&#x27;click&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> newNumber = <span class="built_in">parseInt</span>(numberWrapper.innerText) + <span class="number">1</span>;</span><br><span class="line">  numberWrapper.innerText = newNumber.toString();</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">minusBtn.addEventListener(<span class="string">&#x27;click&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> newNumber = <span class="built_in">parseInt</span>(numberWrapper.innerText) - <span class="number">1</span>;</span><br><span class="line">  numberWrapper.innerText = newNumber.toString();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>但这只是普通版，接下来让我们用 MVC 的方式来一步步的重构这个代码。</p>
+<h3 id="MVC-版本-JS-计数器"><a href="#MVC-版本-JS-计数器" class="headerlink" title="MVC 版本 JS 计数器"></a>MVC 版本 JS 计数器</h3><p>首先我们想，这样写的一个计数器，如果需要修改，那我一方面要改 HTML 文件、一方面还要修改 JS 文件，何其麻烦！</p>
+<p>写到一起来吧：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> app = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#app&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> html = <span class="string">`</span></span><br><span class="line"><span class="string">  &lt;span&gt;0&lt;/span&gt;</span></span><br><span class="line"><span class="string">  &lt;button id=&quot;add&quot;&gt;+&lt;/button&gt;</span></span><br><span class="line"><span class="string">  &lt;button id=&quot;minus&quot;&gt;-&lt;/button&gt;</span></span><br><span class="line"><span class="string">`</span>;</span><br><span class="line"><span class="keyword">const</span> counter = <span class="built_in">document</span>.createElement(<span class="string">&#x27;div&#x27;</span>);</span><br><span class="line">counter.innerHTML = html;</span><br><span class="line">app.appendChild(counter);</span><br></pre></td></tr></table></figure>
+
+<p>那么我们来梳理一下现在的代码：</p>
+<ol>
+<li>首先我们需要创建 HTML 元素；</li>
+<li>然后通过 CSS 选择器找到对应的 DOM 元素；</li>
+<li>再对他们添加各种监听事件与操作。</li>
+</ol>
+<p>那我们可以大胆的猜测一下嘛，如何使用 MVC 思想呢？</p>
+<p>首先新建一个对象叫做 view 吧，再将我们的 html 代码放进去：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> view = &#123;</span><br><span class="line">  html: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;span&gt;0&lt;/span&gt;</span></span><br><span class="line"><span class="string">    &lt;button id=&quot;add&quot;&gt;+&lt;/button&gt;</span></span><br><span class="line"><span class="string">    &lt;button id=&quot;minus&quot;&gt;-&lt;/button&gt;</span></span><br><span class="line"><span class="string">  `</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>还有我们用来新建 div、将 html 代码放入 div、再将 div 放进 app 的操作，应该也是属于视图层。</p>
+<p>所以我们给 view 对象添加一个 render 方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> view = &#123;</span><br><span class="line">  <span class="comment">// ...html...</span></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">const</span> counter = <span class="built_in">document</span>.createElement(<span class="string">&#x27;div&#x27;</span>);</span><br><span class="line">    counter.innerHTML = view.html;</span><br><span class="line">    app.appendChild(counter);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">view.render();</span><br></pre></td></tr></table></figure>
+
+<p>这样我们就搞定了 V，然后看看 C。除了视图和数据，其他的东西应该都属于 C，所以 DOM 元素的获取放在 C 里、事件绑定也放在 C 里。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> controller = &#123;</span><br><span class="line">  ui: &#123;&#125;,</span><br><span class="line">  bindEvents() &#123;&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>这里我们准备将 DOM 元素放在 ui 对象里，但是这里需要脑子转一下。</p>
+<p>一旦我们在这里写了 <code>querySelector</code>，那么必然是找不到元素的，因为我们还没有 render，根本没有那些按钮和数字。</p>
+<p>所以我们得在里面写一个 init 函数，这样我们执行初始化之后，他就会先去获取 DOM、再去绑定事件：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">init() &#123;</span><br><span class="line">  <span class="built_in">this</span>.ui = &#123;</span><br><span class="line">    numberWrapper: <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#app span&#x27;</span>),</span><br><span class="line">    addBtn: <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#add&#x27;</span>),</span><br><span class="line">    minusBtn: <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#minus&#x27;</span>)</span><br><span class="line">  &#125;;</span><br><span class="line">  controller.bindEvents();</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<p>绑定事件的写法就非常简单了：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">bindEvents() &#123;</span><br><span class="line">  controller.ui.addBtn.addEventListener(<span class="string">&#x27;click&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> newNumber = <span class="built_in">parseInt</span>(controller.ui.numberWrapper.innerText) + <span class="number">1</span>;</span><br><span class="line">    controller.ui.numberWrapper.innerText = newNumber.toString();</span><br><span class="line">  &#125;);</span><br><span class="line">  controller.ui.minusBtn.addEventListener(<span class="string">&#x27;click&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> newNumber = <span class="built_in">parseInt</span>(controller.ui.numberWrapper.innerText) - <span class="number">1</span>;</span><br><span class="line">    controller.ui.numberWrapper.innerText = newNumber.toString();</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接下来就是一个转折点了，<strong>我们要创建一个 model 对象来保存数据</strong>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> model = &#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    number: <span class="number">100</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>这个时候不知道大家有没有领悟到一些东西。</p>
+<p><strong>既然已经有了 model，我们何必还去操作 DOM 获取数据呢？</strong></p>
+<p>直接操作 model 多优雅呀！</p>
+<p>所以 bindEvents 可以改成这样：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">controller.ui.addBtn.addEventListener(<span class="string">&#x27;click&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  model.data.number += <span class="number">1</span>;</span><br><span class="line">&#125;);</span><br><span class="line">controller.ui.minusBtn.addEventListener(<span class="string">&#x27;click&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  model.data.number -= <span class="number">1</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>那我们的 view 对象也需要修改，他也应该从 model 中获取数据：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> view = &#123;</span><br><span class="line">  html: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;span&gt;&#123;&#123;number&#125;&#125;&lt;/span&gt;</span></span><br><span class="line"><span class="string">    ......</span></span><br><span class="line"><span class="string">  `</span>,</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">const</span> counter = <span class="built_in">document</span>.createElement(<span class="string">&#x27;div&#x27;</span>);</span><br><span class="line">    counter.innerHTML = view.html.replace(<span class="string">&#x27;&#123;&#123;number&#125;&#125;&#x27;</span>, model.data.number);</span><br><span class="line">    app.appendChild(counter);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>但是我们这样操作虽然说修改了数据，可是并没有重新渲染到页面上呀。所以每次提交之后需要重新 render。</p>
+<p>此时问题出现了：点击 + 或者 - 后，数字只会变化一次，第二次点击便毫无用处！</p>
+<p>这是为什么呢？</p>
+<p>很简单，因为我们重新 render，导致俩<strong>绑定了事件的 button 全都不是曾经的那个他了</strong>。</p>
+<p>所以我们使用事件代理来解决这个问题——将事件绑定在外层的 div 上，然后判断点击对象的 id 即可。</p>
+<p>写法如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> compute = <span class="function"><span class="params">e</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">switch</span> (e.target.id) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;add&#x27;</span>:</span><br><span class="line">      model.data.number += <span class="number">1</span>;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;minus&#x27;</span>:</span><br><span class="line">      model.data.number -= <span class="number">1</span>;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  view.render();</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>接下来我们会在 view 对象中添加一个 el 属性，用来存储我们创建的外层 div。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> view = &#123;</span><br><span class="line">  el: <span class="literal">null</span>,</span><br><span class="line">  <span class="comment">// ......</span></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">if</span> (!view.el) &#123;</span><br><span class="line">      <span class="comment">// 创建 div，并将 div 赋值给 el</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="comment">// 将 el 的 innerHTML 更换为新的内容</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>最后我们再进行一步优化。</p>
+<p>我们本身不应该知道在 render 时，应该 append 给哪一个元素。这个元素应该是别人传给我的，所以应该这么写：</p>
+<p>总代码：</p>
+<p><strong>MVC 之 V</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> view = &#123;</span><br><span class="line">  el: <span class="literal">null</span>,</span><br><span class="line">  html: <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;span&gt;&#123;&#123;n&#125;&#125;&lt;/span&gt;</span></span><br><span class="line"><span class="string">    &lt;button id=&quot;add&quot;&gt;+&lt;/button&gt;</span></span><br><span class="line"><span class="string">    &lt;button id=&quot;minus&quot;&gt;-&lt;/button&gt;</span></span><br><span class="line"><span class="string">  `</span>,</span><br><span class="line">  render(container) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!view.el) &#123;</span><br><span class="line">      <span class="keyword">const</span> counter = <span class="built_in">document</span>.createElement(<span class="string">&#x27;div&#x27;</span>);</span><br><span class="line">      view.el = counter;</span><br><span class="line">      counter.innerHTML = view.html.replace(</span><br><span class="line">        <span class="string">&#x27;&#123;&#123;n&#125;&#125;&#x27;</span>,</span><br><span class="line">        model.data.number.toString()</span><br><span class="line">      );</span><br><span class="line">      container.appendChild(counter);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      view.el.innerHTML = view.html.replace(</span><br><span class="line">        <span class="string">&#x27;&#123;&#123;n&#125;&#125;&#x27;</span>,</span><br><span class="line">        model.data.number.toString()</span><br><span class="line">      );</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><strong>MVC 之 M</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> model = &#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    number: <span class="built_in">parseInt</span>(<span class="built_in">window</span>.localStorage.getItem(<span class="string">&#x27;number&#x27;</span>)) || <span class="number">0</span></span><br><span class="line">  &#125;,</span><br><span class="line">  save() &#123;</span><br><span class="line">    <span class="built_in">window</span>.localStorage.setItem(<span class="string">&#x27;number&#x27;</span>, model.data.number.toString());</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><strong>MVC 之 C</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> controller = &#123;</span><br><span class="line">  init(container) &#123;</span><br><span class="line">    controller.ui = &#123;</span><br><span class="line">      container</span><br><span class="line">    &#125;;</span><br><span class="line">    view.render(container);</span><br><span class="line">    controller.bindEvents();</span><br><span class="line">  &#125;,</span><br><span class="line">  bindEvents() &#123;</span><br><span class="line">    controller.ui.container.addEventListener(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="params">e</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">switch</span> (e.target.id) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;add&#x27;</span>:</span><br><span class="line">          model.data.number += <span class="number">1</span>;</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;minus&#x27;</span>:</span><br><span class="line">          model.data.number -= <span class="number">1</span>;</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">          <span class="keyword">return</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      model.save();</span><br><span class="line">      view.render();</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>使用方式：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> app = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#app&#x27;</span>);</span><br><span class="line"></span><br><span class="line">controller.init(app);</span><br></pre></td></tr></table></figure>
+
+<p>这个时候我们的程序已经是一个比较完整的 MVC 模式了，但直接全部 render 非常浪费性能。</p>
+<p>所以 React 之类的框架会使用虚拟 DOM 和 diff 算法来只修改变化的 DOM。</p>
+<p>总的来说，我们的 MVC 思想可以抽想成为一个公式：<code>view = render(data)</code></p>
+<p><strong>使用 class 来优化代码</strong></p>
+<p>class 优化代码可以提升我们的代码复用程度，铭记：<strong>程序员永远不要重复自己的操作</strong>。</p>
+<p>先看看 Model：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Model</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(options) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> options) &#123;</span><br><span class="line">      <span class="built_in">this</span>[key] = options[key];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  save() &#123;</span><br><span class="line">    <span class="built_in">console</span>.error(<span class="string">&#x27;还未传入save函数&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Model;</span><br></pre></td></tr></table></figure>
+
+<p>这个非常简单，我们想要传入任何的东西，都在这个 option 里面，就像这样：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> model = <span class="keyword">new</span> Model(&#123;</span><br><span class="line">  data: &#123;&#125;,</span><br><span class="line">  save() &#123;&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>回想一下，我们使用 Vue 的时候，是不是也是如此？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data() &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      msg: <span class="string">&#x27;hello world&#x27;</span></span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>我没读过 Vue 的源码，不知道 Vue 是否是按照本文的思路构建代码的。</p>
+<p>但是 Vue、React 等框架追根溯源都能找到 MVC 的身上。所以毫无疑问，MVC 的思想是每一个程序员都需要学习的一种设计模式。</p>
+<p>初学程序，用了几个好用的框架与工具，不应该只沉迷于其方便的一面，要善于从工具的运用中寻找出其作者留下的蛛丝马迹，反推学习、多查资料，才能够慢慢进化成为不惧怕新技术、框架越来越多的大神程序员！</p>
+<p>工具也许会一个月一变、一天一变，但是思维是永恒的。</p>
+<p>（完）</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

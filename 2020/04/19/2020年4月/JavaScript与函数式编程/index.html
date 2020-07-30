@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="徐航宇的个人博客">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        JavaScript 与函数式编程 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Love Code / Love Design </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/head.png" />
+        </div>
+        <div class="name">
+            <i>徐航宇</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JavaScript-%E4%B8%8E%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B"><span class="toc-text">JavaScript 与函数式编程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#filter"><span class="toc-text">filter()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#map"><span class="toc-text">map()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#reduce"><span class="toc-text">reduce()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E8%B7%B5"><span class="toc-text">实践</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Love Code / Love Design </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        JavaScript 与函数式编程
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-04-19 11:17:00</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#JavaScript" title="JavaScript">JavaScript</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <h1 id="JavaScript-与函数式编程"><a href="#JavaScript-与函数式编程" class="headerlink" title="JavaScript 与函数式编程"></a>JavaScript 与函数式编程</h1><p>本文写于 2019 年 4 月 19 日</p>
+<p>绝大多数编程语言都会有函数的概念（或者说所有的？我不太确定），他们都可以做出类似的操作：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x * x</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但是 Javascript 更适合函数式编程，因为函数对于 js 来说，是<strong>一等公民</strong>。</p>
+<p>我们可以把匿名函数赋值给一个变量，比如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> pow = <span class="function"><span class="keyword">function</span> (<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x * x;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>然后我们可以将这个函数赋值给另一个变量：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> comeon = pow;</span><br><span class="line">comeon(x);</span><br></pre></td></tr></table></figure>
+
+<p>这样做和直接调用<code>pow(x)</code>是一样的效果。</p>
+<p>甚至于我们可以将函数作为参数传入另一个函数，这样，诸多小函数可以汇聚在一起，变得异常强大！</p>
+<h2 id="filter"><a href="#filter" class="headerlink" title="filter()"></a>filter()</h2><p>OK，我们接下来看一些比较基础的例子。</p>
+<p>首先是<code>filter()</code>，这是我最喜欢的函数之一。<code>filter()</code>方法会<strong>创建一个新的数组</strong>，并且我们可以传入一个判断函数，将符合条件的元素，放入新的数组。</p>
+<p>现在我们有一个数组，里面存放了很多游戏，每个元素都记录了该游戏需要花多少钱：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> games = [</span><br><span class="line">  &#123;</span><br><span class="line">    name: <span class="string">&#x27;英雄联盟&#x27;</span>,</span><br><span class="line">    cost: <span class="number">45</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    name: <span class="string">&#x27;穿越火线&#x27;</span>,</span><br><span class="line">    cost: <span class="number">888</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    name: <span class="string">&#x27;魔兽世界&#x27;</span>,</span><br><span class="line">    cost: <span class="number">75</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    name: <span class="string">&#x27;征途&#x27;</span>,</span><br><span class="line">    cost: <span class="number">1000000</span></span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>然后我们需要找出，花费不超过一百元的游戏，该怎么做呢？</p>
+<p>可能是这样：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> target = [];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; games.length; i++) &#123;</span><br><span class="line">  <span class="keyword">if</span> (games[i].cost &lt;= <span class="number">100</span>) &#123;</span><br><span class="line">    target.push(games[i]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这是大家从大学开始学 C 语言的时候就会用的方法。但是我现在想用<code>filter()</code>方法重写它：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> target = games.filter(<span class="function"><span class="params">game</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> game.cost &lt;= <span class="number">100</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>Wow! Awesome!</p>
+<p>我稍微解释一下，防止有同学没有看懂，这里传入了一个函数，函数接收了一个参数，这个参数就是 games 的每一个元素依次传入的值，在每一次传入之后，我们都返回一个逻辑值，这个逻辑值取决于该游戏的<code>cost</code>是否小于 100，如果返回了<code>true</code>该元素就会被放到新的数组里去，反之同理。</p>
+<p><strong>注意：</strong></p>
+<ul>
+<li><code>filter()</code>不会对空数组进行检测</li>
+<li><code>filter()</code>不会改变原始数组</li>
+</ul>
+<p>实际上，filter 内部的处理方法可能和我们使用 for 循环一模一样！但是我们利用函数式编程，写了更少的代码、更少的逻辑。Less code! Less time! Less bug!</p>
+<p>这就是函数式编程的美妙之处。</p>
+<h2 id="map"><a href="#map" class="headerlink" title="map()"></a>map()</h2><p>我们现在先看回之前写的数组：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> games = [</span><br><span class="line">  &#123;</span><br><span class="line">    name: <span class="string">&#x27;英雄联盟&#x27;</span>,</span><br><span class="line">    cost: <span class="number">45</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    name: <span class="string">&#x27;穿越火线&#x27;</span>,</span><br><span class="line">    cost: <span class="number">888</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    name: <span class="string">&#x27;魔兽世界&#x27;</span>,</span><br><span class="line">    cost: <span class="number">75</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    name: <span class="string">&#x27;征途&#x27;</span>,</span><br><span class="line">    cost: <span class="number">1000000</span></span><br><span class="line">  &#125;</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+
+<p>现在我们要把每一款游戏的名字都拿出来，组成一个新的数组。</p>
+<p>这种操作是非常常见的，比如我们使用 React，向服务器请求了 JSON 数据，接下来需要在这里渲染名字，那里渲染价格……等等。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> gameName = games.map(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> item.name;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>我们甚至可以做出更多的骚操作，比如说：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> gameName = games.map(<span class="function">(<span class="params">item</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;item.name&#125;</span>是一个<span class="subst">$&#123;item.cost &gt; <span class="number">100</span>? <span class="string">&#x27;坑钱游戏&#x27;</span>:<span class="string">&#x27;良心游戏&#x27;</span>&#125;</span>`</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>得到结果<code>[&quot;英雄联盟是一个良心游戏&quot;, &quot;穿越火线是一个坑钱游戏&quot;, &quot;魔兽世界是一个良心游戏&quot;, &quot;征途是一个坑钱游戏&quot;]</code></p>
+<p>Wow! Awesome! 只能用优雅两个字来形容！</p>
+<h2 id="reduce"><a href="#reduce" class="headerlink" title="reduce()"></a>reduce()</h2><p><code>reduce()</code>单词本身是减少的意思，但是实际上你可以将<code>reduce()</code>理解为求和（事实并不如此，reduce 更加强大且灵活，但是此时可以暂时这么理解，更多特性可以在下一节看到）。</p>
+<p>语言太过苍白无力，我们来看看代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"><span class="keyword">let</span> sum = numbers.reduce(<span class="function">(<span class="params">total, item</span>) =&gt;</span> total + item);</span><br></pre></td></tr></table></figure>
+
+<p><em>这里是利用了箭头函数可以省略 return 的特性。</em></p>
+<p>这里的传入的函数接收了两个参数（实际上可以接收四个，但这里不需要后面两个），这两个参数通过英文应该就可以看懂。</p>
+<p><code>reduce()</code>方法接收一个函数作为累加器，数组中的每个值（从左到右）开始缩减，最终计算为一个值。</p>
+<p><strong>注意:</strong> <code>reduce()</code>对于空数组是不会执行回调函数的。</p>
+<p>这里可以给一个初始值：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"><span class="keyword">let</span> sum = numbers.reduce(<span class="function">(<span class="params">total, item</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> total + item;</span><br><span class="line">&#125;, <span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+
+<p>之前的和是 15，这次加上了一个初始值，就是 25 了。</p>
+<h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h2><p>假设我们有一个 TXT 文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">徐航宇    游泳    4分钟</span><br><span class="line">徐航宇    跑步    1分钟</span><br><span class="line">徐航宇    跳远    3米</span><br><span class="line">刘好    游泳    5分钟</span><br><span class="line">刘好    跑步    2分钟</span><br><span class="line">刘好    跳远    1米</span><br></pre></td></tr></table></figure>
+
+<p>我们用 node 去读取他，让它变成一个 JSON 对象，就像这样：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;徐航宇&quot;</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">&quot;项目&quot;</span>: <span class="string">&quot;游泳&quot;</span>,</span><br><span class="line">      <span class="string">&quot;时间&quot;</span>: <span class="string">&quot;4分钟&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">&quot;项目&quot;</span>:<span class="string">&quot;跑步&quot;</span>,</span><br><span class="line">      <span class="string">&quot;时间&quot;</span>:<span class="string">&quot;1分钟&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="string">&quot;刘好&quot;</span>: [</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上代码！</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> fs <span class="keyword">from</span> <span class="string">&#x27;fs&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> output = fs.readFileSync(<span class="string">&#x27;data.txt&#x27;</span>, <span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">    .trim() <span class="comment">// 去掉字符串头尾的空格，返回新数组</span></span><br><span class="line">    .split(<span class="string">&#x27;\n&#x27;</span>) <span class="comment">// 在换行处截断，组成数组</span></span><br><span class="line">    .map(<span class="function"><span class="params">line</span> =&gt;</span> line.split(<span class="string">&#x27;\t&#x27;</span>)) <span class="comment">// 每一行根据制表符断开，组成数组</span></span><br></pre></td></tr></table></figure>
+
+<p>这一步之后，我们应该得到什么？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  [<span class="string">&quot;徐航宇&quot;</span>, <span class="string">&quot;游泳&quot;</span>, <span class="string">&quot;4分钟&quot;</span>],</span><br><span class="line">    [<span class="string">&quot;徐航宇&quot;</span>, <span class="string">&quot;跑步&quot;</span>, <span class="string">&quot;1分钟&quot;</span>],</span><br><span class="line">    [<span class="string">&quot;徐航宇&quot;</span>, <span class="string">&quot;跳远&quot;</span>, <span class="string">&quot;3米&quot;</span>],</span><br><span class="line">    [<span class="string">&quot;刘好&quot;</span>, <span class="string">&quot;游泳&quot;</span>, <span class="string">&quot;5分钟&quot;</span>],</span><br><span class="line">    [<span class="string">&quot;刘好&quot;</span>, <span class="string">&quot;跑步&quot;</span>, <span class="string">&quot;2分钟&quot;</span>],</span><br><span class="line">    [<span class="string">&quot;刘好&quot;</span>, <span class="string">&quot;跳远&quot;</span>, <span class="string">&quot;1米&quot;</span>]</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>接下来想要变成对象，该怎么做呢？</p>
+<p>首先第一步，我们想一想，要想变成最终的 JSON 数据，我们需要对每一项进行处理：</p>
+<ul>
+<li>把每一个数组的第一个作为对象的属性名</li>
+<li>把每一个数组的二三项组成新的对象，放入该属姓名的值中</li>
+</ul>
+<p>接下来就该<code>reduce()</code>出场了：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">.reduce(<span class="function">(<span class="params">customer, line</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// 提取每个数组的第一项，作为传入对象的属姓名</span></span><br><span class="line">      <span class="comment">// 如果该项是以前没有的，那么将其初始化为空数组</span></span><br><span class="line">      <span class="comment">// 如果该项以前有，那么就不动他</span></span><br><span class="line">    customer[line[<span class="number">0</span>]] = customer[line[<span class="number">0</span>]] === <span class="literal">undefined</span> ? [] : customer[line[<span class="number">0</span>]]</span><br><span class="line">        customer[line[<span class="number">0</span>]].push(&#123;</span><br><span class="line">      name: line[<span class="number">1</span>],</span><br><span class="line">      time: line[<span class="number">2</span>]</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">return</span> customer</span><br><span class="line">  &#125;, &#123;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>这样就成功了！</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>总而言之，函数式编程如果归根结底，和直接写没有任何区别。但是它提供给了我们一种<strong>写更少的代码</strong>，完成更多的事情的方法。</p>
+<p>人是难免会出错的，代码量越大、错误可能就会越多，所以更少代码的函数式编程，往往意味着：更少的 bug。</p>
+<p>（完）</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

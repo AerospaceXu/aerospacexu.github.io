@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="徐航宇的个人博客">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        TS 自学笔记（一） - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Love Code / Love Design </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/head.png" />
+        </div>
+        <div class="name">
+            <i>徐航宇</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#TS-%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89"><span class="toc-text">TS 自学笔记（一）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E5%95%A5%E8%A6%81%E5%AD%A6-TS%EF%BC%9F"><span class="toc-text">为啥要学 TS？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#01-%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B"><span class="toc-text">01 变量类型</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Love Code / Love Design </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        TS 自学笔记（一）
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-05-06 13:53:40</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#JavaScript" title="JavaScript">JavaScript</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <h1 id="TS-自学笔记（一）"><a href="#TS-自学笔记（一）" class="headerlink" title="TS 自学笔记（一）"></a>TS 自学笔记（一）</h1><p>本文写于 2020 年 5 月 6 日</p>
+<p><strong>日常废话两句</strong></p>
+<p>有几天没有更新了，最近学的比较乱，休息了两天感觉好一些了。这两天玩了几个设计软件，过几天也写篇文章分享分享。</p>
+<h2 id="为啥要学-TS？"><a href="#为啥要学-TS？" class="headerlink" title="为啥要学 TS？"></a>为啥要学 TS？</h2><p>进入正题哈，经常写 JS 的人会特别多的碰到一个 bug：<code>xxxx is not a function</code>之类的。</p>
+<p>这是为什么呢？</p>
+<p>其实就是我们用了一些不属于它的方法。</p>
+<p>比如说我们有一个<code>const a = 250</code>，然后我们让他<code>a.filter(()=&gt;&#123;&#125;)</code>。</p>
+<p>有人可能会说，那明明是一个 number 类型，我怎么可能给他 <code>filter</code> 呢？</p>
+<p>我之前就犯过这个错误，我想让一个数组等于另一个被 push 一个新元素数组：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> newArr = arr.push(<span class="string">&#x27;hello&#x27;</span>);</span><br><span class="line">newArr.filter(<span class="function">() =&gt;</span> &#123;&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>要知道，<code>arr.push</code>他的返回值是<strong>新的数组长度！</strong></p>
+<p>我让一个 number 类型去使用数组方法，自然是会报错的。</p>
+<p>好吧我知道这样似乎非常愚蠢，但是总而言之，在日常写 JS 的报错中，有大把大把的报错是因为这种<strong>完全可以避免掉的问题</strong>。</p>
+<p>如果是 Java，他会在编辑器内就给你划红线，不会等到你运行了，再去告诉你。</p>
+<p>这就是动态语言的毛病。</p>
+<p><strong>关于代码提示</strong></p>
+<p>不仅如此，我们是否会在写代码的时候烦心于代码提示呢？</p>
+<p>比如我在某个 class 内部声明了一些变量，可是当我在其他地方进行实力化的时候，<strong>统统都没有提示！</strong></p>
+<p>我必须要翻到这个 class 的文件，找到那些变量再确认一番。</p>
+<p>而 TS 的接口概念，可以帮助我们非常完美的解决问题！</p>
+<hr>
+<p>所以我们需要学习 TypeScript。</p>
+<p>据说用了 TS，能有效减少 80%的 Bug（笑）。</p>
+<p>但不管这是不是真的，从各个大框架对于 TS 的青睐程度来看，未来几年内，TS 必然会是绝对的热点之一！</p>
+<p>毕竟，现在已经不只是：</p>
+<blockquote>
+<p>能被 JS 改写的终将被 JS 改写</p>
+</blockquote>
+<p>而是：</p>
+<blockquote>
+<p>能被 TS 改写的，终将被 TS 改写</p>
+</blockquote>
+<h2 id="01-变量类型"><a href="#01-变量类型" class="headerlink" title="01 变量类型"></a>01 变量类型</h2><p>JS 是弱类型语言，TS 却不是。</p>
+<p>TS 拥有这些类型：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">1. undefined</span><br><span class="line">2. null</span><br><span class="line">3. boolean</span><br><span class="line">4. number</span><br><span class="line">5. string</span><br><span class="line">6. object</span><br><span class="line">7. array</span><br><span class="line"></span><br><span class="line">----⬆️JS 有的，⬇️JS 没有的----</span><br><span class="line"></span><br><span class="line">8. tuple</span><br><span class="line">9. enum</span><br><span class="line">10. any</span><br><span class="line">11. void</span><br><span class="line">12. never</span><br></pre></td></tr></table></figure>
+
+<p>number、string、boolean 没有什么特别好说的，和 JS 没什么区别，我来写几个我觉得比较重要的。</p>
+<p><strong>数组的声明</strong></p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> list: <span class="built_in">number</span>[] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> list_b: <span class="built_in">Array</span>&lt;<span class="built_in">number</span>&gt; = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br></pre></td></tr></table></figure>
+
+<p>第一种方法不难理解，就是生命一个 number 数组。</p>
+<p>第二种方法叫做数组泛型，即<code>Array&lt;元素类型&gt;</code>。</p>
+<p><strong>什么叫做泛型呢？</strong></p>
+<p>如果我们有一个函数：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">identity</span>(<span class="params">arg: <span class="built_in">number</span></span>): <span class="title">number</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> arg;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>那这个时候，传入的变量就必须是数字。</p>
+<p>考虑到可复用性的问题，我们可以使用泛型。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">identity</span>&lt;<span class="title">T</span>&gt;(<span class="params">arg: T</span>): <span class="title">T</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> arg;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>identity 函数</strong> 叫做泛型（注意，T 不是泛型！），因为它可以适用于多个类型。</p>
+<p>T 是类型变量，它是一种特殊的变量，只用于表示类型而不是值。</p>
+<p>它可以帮助我们捕获用户传入的类型，让我们可以对这个类型加以利用。</p>
+<p>其实之前的情况，我们可以通过 any 来实现，但是 any 就会让我们丢失 T 这一信息。</p>
+<p>在命名变量的时候有一个小坑，变量名不能命名为<code>name</code>，因为会与 DOM 中的全局 window 对象下的 name 属性出现重名。</p>
+<p><strong>enum 是成组常量的好用法！</strong></p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">enum</span> Hello &#123;</span><br><span class="line">  teacher: <span class="string">&quot;老师好&quot;</span>,</span><br><span class="line">  classmate: <span class="string">&quot;同学好&quot;</span>,</span><br><span class="line">  parents: <span class="string">&quot;爸爸好&quot;</span>,</span><br><span class="line">  girlfriend: <span class="string">&quot;刘好&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>一般情况，枚举类型会自动赋给自己常量值：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">enum</span> Hello &#123;</span><br><span class="line">  teacher, <span class="comment">// 0</span></span><br><span class="line">  classmates, <span class="comment">// 1</span></span><br><span class="line">  parents, <span class="comment">// 2</span></span><br><span class="line">  girlfriend <span class="comment">// 3</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们也可以从中间打断这个赋值：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">enum</span> Hello &#123;</span><br><span class="line">  teacher, <span class="comment">// 0</span></span><br><span class="line">  classmates, <span class="comment">// 1</span></span><br><span class="line">  parents = <span class="number">5</span>, <span class="comment">// 5</span></span><br><span class="line">  girlfriend <span class="comment">// 6</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接下来会进行顺延。</p>
+<p><strong>从来没有的 Never 值</strong></p>
+<p><code>never</code> 类型表示的是那些永不存在的值的类型，听起来就像个悖论——我如何列举一个不存在的值？</p>
+<p>其实<code>never</code> 类型可以是抛出的异常，或根本就不会有返回值的函数的返回值类型。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">error</span>(<span class="params">message: <span class="built_in">string</span></span>): <span class="title">never</span> </span>&#123;</span><br><span class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(message);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fail</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> error(<span class="string">&#x27;Something failed&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">infiniteLoop</span>(<span class="params"></span>): <span class="title">never</span> </span>&#123;</span><br><span class="line">  <span class="keyword">while</span> (<span class="literal">true</span>) &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>总体来讲大同小异，TS 补充了一些在别的语言中有过的常见数据类型，相信这一块对于 JS 开发者来说，不会是什么难题。</p>
+<p>唯一的难题就是习惯，可不能老是使用 any 类型！</p>
+<p>（未完待续）</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

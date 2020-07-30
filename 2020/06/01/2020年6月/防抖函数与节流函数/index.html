@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="徐航宇的个人博客">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        防抖函数与节流函数 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Love Code / Love Design </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/head.png" />
+        </div>
+        <div class="name">
+            <i>徐航宇</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%98%B2%E6%8A%96%E5%87%BD%E6%95%B0%E4%B8%8E%E8%8A%82%E6%B5%81%E5%87%BD%E6%95%B0"><span class="toc-text">防抖函数与节流函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%82%A3%E4%B9%88%EF%BC%8C%E5%95%A5%E6%98%AF%E9%98%B2%E6%8A%96%EF%BC%9F%E5%95%A5%E6%98%AF%E8%8A%82%E6%B5%81%EF%BC%9F"><span class="toc-text">那么，啥是防抖？啥是节流？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E9%98%B2%E6%8A%96"><span class="toc-text">1. 防抖</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E8%8A%82%E6%B5%81"><span class="toc-text">2. 节流</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Love Code / Love Design </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        防抖函数与节流函数
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-06-01 03:23:44</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#JavaScript" title="JavaScript">JavaScript</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <h1 id="防抖函数与节流函数"><a href="#防抖函数与节流函数" class="headerlink" title="防抖函数与节流函数"></a>防抖函数与节流函数</h1><p>本文写于 2020 年 6 月 1 日</p>
+<p>今天看到了两个函数，防抖函数与节流函数。</p>
+<p>这俩函数名字看起来是不是十分高端？</p>
+<p>但是对于前端而言，这一年多的学习让我明白——不要望文生义，更<strong>不要望文生畏</strong>！</p>
+<h3 id="那么，啥是防抖？啥是节流？"><a href="#那么，啥是防抖？啥是节流？" class="headerlink" title="那么，啥是防抖？啥是节流？"></a>那么，啥是防抖？啥是节流？</h3><p>请先思考两个故事。</p>
+<p><strong>故事一：</strong></p>
+<p>首先想象我们回到了 25 年前，我们的网速还是在 18kb/s 。</p>
+<p>这个时候我们访问了现代的淘宝，准备备战 618。</p>
+<p>但是很不幸，因为网速过慢，我们在购买的时候迟迟没有反应，所以我们一次又一次的点击“立即购买”。</p>
+<p>假设这个淘宝是平行空间的淘宝，他们没有做任何防止重复提交的技术。</p>
+<p>那么我们的多次点击，将会把所有的请求全部上传！恭喜你，购买了 N 件同样的商品。</p>
+<p><strong>故事二：</strong></p>
+<p>如果我们有 10 部电梯和 10 个用户，这些用户会以 5 秒钟的间隔依次进入电梯。并且用户一旦进入电梯，电梯门就会关闭，不可停止。</p>
+<p>那这个时候，10 个用户，就会乘着 10 个电梯，顺着相差 5 秒的电梯一起上行。</p>
+<p><strong>这也太浪费资源了！</strong></p>
+<h4 id="1-防抖"><a href="#1-防抖" class="headerlink" title="1. 防抖"></a>1. 防抖</h4><p>所谓防抖函数，就是当我们连续的调用 <code>foo()</code> 函数时，总是会中断之前的函数，然后立即执行最新的一次调用。</p>
+<p>为啥要这么做呢？想想刚刚的电梯故事，多么的浪费资源！</p>
+<p>但是如果这个故事发生在日常的生活中，我们会如何处理？</p>
+<p>如果仅仅在短时间内，我们完全是可以按住“上行”按钮停住电梯门的。这样我们所有的人就<strong>能一起上行</strong>。</p>
+<p>这就是防抖。</p>
+<p>防抖函数具体到底有哪些用途呢？</p>
+<p>• 给按钮加函数防抖防止表单多次提交；<br>• 对于输入框连续输入进行 Ajax 验证时，用函数防抖能有效减少请求次数；<br>• 判断页面滑动何时停止。</p>
+<h4 id="2-节流"><a href="#2-节流" class="headerlink" title="2. 节流"></a>2. 节流</h4><p>节流规定一个单位时间内，只能有一次触发事件的回调函数执行，如果在同一个单位时间内某事件被触发多次，只有一次能生效。</p>
+<p>当我们在编写网页的时候，如果我们需要实现 DOM 拖拽功能，一般都会给 <code>move</code> 事件添加回调函数。</p>
+<p>但是真正运行的时候我们会发现：每当元素稍微移动一点，就会触发了大量的回调函数，导致浏览器直接卡死。</p>
+<p>除了 DOM 另外一个例子就是电影。</p>
+<p>我们知道当 1 秒内连续播放 24 张以上的图片时，人的眼中这些图片就会形成一个连贯的动画。</p>
+<p>所以在电影的播放中基本是以每秒 24 张的速度播放的，为什么不 500 张或更多是因为 24 张就可以满足人类视觉需求的时候，500 张就会显得很浪费资源。</p>
+<p>对于函数节流，有如下几个场景：</p>
+<p>• 游戏中的刷新率；<br>• DOM 元素拖拽；<br>• Canvas 画笔功能。</p>
+<p>上代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 防抖函数 debounce</span></span><br><span class="line"><span class="comment"> * fn 是执行的函数，wait 是防抖的时间间隔</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">fn, wait</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 用一个变量来记录是否到达了防抖的时间</span></span><br><span class="line">  <span class="keyword">let</span> timer = <span class="literal">null</span></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 如果 timer 不为空，就会清除定时器，并且将 timer 清空</span></span><br><span class="line">    <span class="keyword">if</span> (timer) &#123;</span><br><span class="line">      <span class="built_in">clearTimeout</span>(timer)</span><br><span class="line">        timer = <span class="literal">null</span></span><br><span class="line">    &#125;</span><br><span class="line">    timer = <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> fn(), wait)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 节流函数 throttle</span></span><br><span class="line"><span class="comment"> * fn 是执行的函数，gapTime 是节流的时间间隔</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">throttle</span>(<span class="params">fn, gapTime</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> lastTime = <span class="literal">null</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> nowTime = + <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line">    <span class="comment">// 如果 lastTime 是 null，或者两次调用的时差超过了节流时间，才会执行函数</span></span><br><span class="line">    <span class="keyword">if</span> (!lastTime || nowTime - lastTime &gt; gapTime) &#123;</span><br><span class="line">      fn();</span><br><span class="line">      <span class="comment">// 执行完毕后将时间同步</span></span><br><span class="line">      lastTime = nowTime</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里我们可以看到，其实是 return 的用来操作 <code>timer</code> 和 <code>lastTime</code> 的函数就是一个闭包。</p>
+<p>如果不理解，可以不要外层的函数，直接将 timer 和 <code>lastTime</code> 放在全局作用域，再去尝试理解。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>一言以蔽之：函数防抖和函数节流，是在时间轴上<strong>控制函数的执行次数</strong>所用的函数。</p>
+<p>（完）</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

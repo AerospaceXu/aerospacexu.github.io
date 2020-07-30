@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="徐航宇的个人博客">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        用简单的 Node.js 后台程序浅析 HTTP 请求与响应 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Love Code / Love Design </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/head.png" />
+        </div>
+        <div class="name">
+            <i>徐航宇</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%94%A8%E7%AE%80%E5%8D%95%E7%9A%84-Node-js-%E5%90%8E%E5%8F%B0%E7%A8%8B%E5%BA%8F%E6%B5%85%E6%9E%90-HTTP-%E8%AF%B7%E6%B1%82%E4%B8%8E%E5%93%8D%E5%BA%94"><span class="toc-text">用简单的 Node.js 后台程序浅析 HTTP 请求与响应</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E8%A7%84%E5%88%99"><span class="toc-text">请求规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%93%8D%E5%BA%94%E8%A7%84%E5%88%99"><span class="toc-text">响应规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E7%94%A8-Curl-%E6%9D%A5%E6%9E%84%E9%80%A0%E4%B8%80%E4%B8%AA-HTTP-%E8%AF%B7%E6%B1%82%EF%BC%9F"><span class="toc-text">如何用 Curl 来构造一个 HTTP 请求？</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Love Code / Love Design </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        用简单的 Node.js 后台程序浅析 HTTP 请求与响应
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-01-18 18:07:51</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#JavaScript" title="JavaScript">JavaScript</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <h1 id="用简单的-Node-js-后台程序浅析-HTTP-请求与响应"><a href="#用简单的-Node-js-后台程序浅析-HTTP-请求与响应" class="headerlink" title="用简单的 Node.js 后台程序浅析 HTTP 请求与响应"></a>用简单的 Node.js 后台程序浅析 HTTP 请求与响应</h1><p>本文写于 2020 年 1 月 18 日</p>
+<p>我们来看两种方式发送 HTTP 请求，一种呢，是命令行的 curl 命令；一种呢是直接在浏览器的地址栏输入地址。</p>
+<p>那你会发请求吗？</p>
+<p>我们哪里会发请求嘛，我们不会，所以我们需要 <strong>“用户代理“</strong> 来帮助我们，即<strong>User Agent</strong>。</p>
+<p>那发完了如何响应呢？</p>
+<p>假设，我们有一个服务器，然后我们写了一段 Node.js 的服务器代码，并在服务器的某个端口上开始运行。</p>
+<p>那么这个时候，我们只要访问一次服务器，我们的后台程序就会知道。</p>
+<p>这其中，包括你的<strong>路径</strong>、<strong>查询参数</strong>。而锚点<strong>不会</strong>被服务器读取！！！</p>
+<p>这是上次的文章中提到的 URL 的组成。</p>
+<p>其实简单来说，十分简单（不是废话吗）。</p>
+<p>可以用伪代码来实现一下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">http &#x3D; 接收http请求</span><br><span class="line">path &#x3D; 路由</span><br><span class="line">query &#x3D; 查询参数</span><br><span class="line"></span><br><span class="line">if(路由 &#x3D;&#x3D;&#x3D; &#39;&#x2F;&#39;) &#123;</span><br><span class="line">  返回响应(&#39;这是根目录&#39;)</span><br><span class="line">&#125; else if (路由 &#x3D;&#x3D;&#x3D; &#39;&#x2F;home&#39;) &#123;</span><br><span class="line">  返回响应(&#39;这是首页&#39;)</span><br><span class="line">&#125; else &#123;</span><br><span class="line">  返回响应(&#39;404 Not Found&#39;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="请求规则"><a href="#请求规则" class="headerlink" title="请求规则"></a>请求规则</h2><p>那么具体的 HTTP 请求，要求的规则是什么呢？</p>
+<p>简单来说，<strong>需要有一个请求动词，后跟路径查询参数，后跟协议名/版本号</strong>。</p>
+<p>比如说<code>GET / HTTP/1.1</code>，这就是说——请求是 GET，路径是 / 根目录，没有查询参数，协议是 HTTP/1.1。</p>
+<p>请求动词一般有 GET / POST / PUT / PATCH / DELETE……</p>
+<p>一般使用 GET 和 POST 最多，其中 GET 用来<strong>获取内容</strong>，POST 用来<strong>上传内容</strong>。</p>
+<p>除此之外呢，还会有 Host、Accept、Content-Type 等参数，这里说几个简单的常用的。</p>
+<ul>
+<li>Host：域名或者 IP；</li>
+<li>Accept：text/html，用来告诉服务器想要的文件类型；</li>
+<li>Content-Type：请求体的格式</li>
+<li>一个回车；</li>
+<li>请求体。</li>
+</ul>
+<p>之前说<strong>一个请求动词，后跟路径查询参数，后跟协议名/版本号</strong>叫做<strong>请求行</strong>。</p>
+<p>Host + Accept + Content-Type 是<strong>请求头</strong>。</p>
+<p>最后就是请求的内容：<strong>请求体</strong>。<em>在 GET 请求中，请求体为空</em></p>
+<h2 id="响应规则"><a href="#响应规则" class="headerlink" title="响应规则"></a>响应规则</h2><ul>
+<li>协议名/版本+状态码+状态字符串；</li>
+<li>Content-Type：响应体的格式；</li>
+<li>一个回车；</li>
+<li>响应体。</li>
+</ul>
+<p>第一个叫做<strong>状态行</strong>；第二个叫做<strong>响应头</strong>；第三个叫做<strong>响应体</strong>。</p>
+<h2 id="如何用-Curl-来构造一个-HTTP-请求？"><a href="#如何用-Curl-来构造一个-HTTP-请求？" class="headerlink" title="如何用 Curl 来构造一个 HTTP 请求？"></a>如何用 Curl 来构造一个 HTTP 请求？</h2><p>之前的文章稍微提了一下，说<code>curl https://baidu.com</code>是向百度发送 http 请求、<code>curl -v xxxxx</code>可以查看具体的请求过程。</p>
+<p>那么接下来会结合刚刚说的 HTTP 请求，来讲一些，更具体的用法：</p>
+<ul>
+<li>设置请求动词<br><code>-X POST</code><br><strong>大小写注意</strong></li>
+<li>设置路径和查询参数<br>直接加在 url 后面就可以了</li>
+<li>设置请求头<br><code>-H &#39;Name:Value&#39;</code>或者<code>--header &#39;Name: Value&#39;</code>。比如<code>-H &#39;Xhy: handsome&#39;</code>，或者规定 Content-Type 为纯文本，且是 utf-8 编码：<code>Content-Type: text/plain;charset=utf-8</code></li>
+<li>设置请求体<br><code>-d &#39;内容&#39;</code>或者<code>--data &#39;内容&#39;</code></li>
+</ul>
+<p>服务器自然会有相应的 API 将每一个信息分别读出来，之后便可以进行处理。</p>
+<p>总而言之，就是利用各种各样的 API 来实现接收或者发送<strong>符合 HTTP 协议的 HTTP 请求</strong>。</p>
+<p>（完）</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

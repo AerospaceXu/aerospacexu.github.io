@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="徐航宇的个人博客">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        this 去哪？ - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Love Code / Love Design </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/head.png" />
+        </div>
+        <div class="name">
+            <i>徐航宇</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#this-%E5%8E%BB%E5%93%AA%EF%BC%9F"><span class="toc-text">this 去哪？</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Love Code / Love Design </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        this 去哪？
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-04-26 08:00:27</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#JavaScript" title="JavaScript">JavaScript</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <h1 id="this-去哪？"><a href="#this-去哪？" class="headerlink" title="this 去哪？"></a>this 去哪？</h1><p>本文写于 2020 年 4 月 26 日</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">  foo() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> bar = obj.foo;</span><br><span class="line">obj.foo(); <span class="comment">// 打印出的 this 是 obj</span></span><br><span class="line">bar(); <span class="comment">// 打印出的 this 是 window</span></span><br></pre></td></tr></table></figure>
+
+<p>最后两行函数的值为什么不一样？？？</p>
+<p>this 关键字是 JavaScript 最复杂的机制之一，它是一个<strong>特别的关键字</strong>。</p>
+<p>之前关于函数的文章里写过了，<code>let bar = obj.foo</code>可以让<code>bar()</code>和<code>obj.foo()</code>等价，那为什么 this 指向不一样？</p>
+<p>在学 React 的时候，很多人会发现有个很烦人的操作，就是在<code>constructor</code>里面，需要<code>bind(this)</code>。</p>
+<p><strong>首先需要从函数的调用开始讲起。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">foo(p1, p2);</span><br><span class="line">obj.foo(p1, p2);</span><br><span class="line">foo.call(obj, p1, p2);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> *  或者apply或者bind，这三个都是用来绑定this的</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+
+<p>这几种其实都是调用函数。那有什么区别呢？</p>
+<p>乍看之下，前两种简单，后面一种复杂。很多人就选择完全不使用后面的<code>call()</code>。</p>
+<p>但实际上，后面的方法是用来绑定 this 的，前面的方法属于“随缘绑定”，但都可以等价的变成该种写法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">func.call(context, p1, p2);</span><br></pre></td></tr></table></figure>
+
+<p><code>foo(p1, p2)</code> 等价于 <code>foo.call(undefined, p1, p2)</code><br><code>obj.foo(p1, p2)</code> 等价于 <code>obj.foo.call(obj, p1, p2)</code></p>
+<p><strong>我们来实现一个简单的 bind</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bind</span>(<span class="params">fn, obj</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> fn.apply(obj, <span class="built_in">arguments</span>);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bin(foo, obj);</span><br></pre></td></tr></table></figure>
+
+<p>很多人特别喜欢死记硬背这个 this 的指向，“谁调用 this 就指向谁”blablabla……</p>
+<p>但实际上，this 是要为我们所用的，我想让你指向谁，你就要指向谁。我们不应该被它牵着走。</p>
+<p>先看<code>foo(p1, p2)</code>中的 this 如何确定。</p>
+<p>当你写下面代码时：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>);</span><br><span class="line">&#125;</span><br><span class="line">foo();</span><br></pre></td></tr></table></figure>
+
+<p>等价于</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>);</span><br><span class="line">&#125;</span><br><span class="line">foo.call(<span class="literal">undefined</span>); <span class="comment">// 可以简写为 foo.call()</span></span><br></pre></td></tr></table></figure>
+
+<p>按理说打印出来的 this 应该就是 undefined 了吧，但是浏览器里有一条规则：</p>
+<p><strong>如果你传的第一个参数是<code>null</code>或者<code>undefined</code>， window 对象就是默认的</strong>。因此上面的打印结果是 window。</p>
+<p>如果希望这里的 this 不是 window 该怎么做呢？</p>
+<p>很简单：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">func.call(obj); <span class="comment">// 那么里面的 this 就是 obj 对象了</span></span><br></pre></td></tr></table></figure>
+
+<p>再看<code>obj.foo(p1, p2)</code> 里的 this 如何确定：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">  foo() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">obj.foo();</span><br></pre></td></tr></table></figure>
+
+<p>他本身的指向就是 obj 自己，所以写成<code>call()</code>也就是：<code>obj.foo.call(obj)</code></p>
+<p>回到最上面的代码。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">  foo() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> bar = obj.foo;</span><br><span class="line">obj.foo(); <span class="comment">// 转换为 obj.foo.call(obj)，this 就是 obj</span></span><br><span class="line">bar();</span><br><span class="line"><span class="comment">// 转换为 bar.call()</span></span><br><span class="line"><span class="comment">// 由于没有传 context</span></span><br><span class="line"><span class="comment">// 所以 this 就是 undefined</span></span><br><span class="line"><span class="comment">// 最后浏览器给你一个默认的 this —— window 对象</span></span><br></pre></td></tr></table></figure>
+
+<p>提一个有趣的用法：如果把函数放到数组里，然后数组[]调用函数，this 指向哪里呢？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> arr = [fn, fn2];</span><br><span class="line">arr[<span class="number">0</span>]();</span><br></pre></td></tr></table></figure>
+
+<p>这里面的 this 是什么呢？</p>
+<p>我们可以把<code>arr[0]()</code>理解为<code>arr.0()</code>，虽然后者的语法错了，但是形式与转换代码里的<code>obj.foo(p1, p2)</code>对应上了！</p>
+<p><code>arr[0]()</code> =&gt; <code>arr.0()</code> =&gt; <code>arr.0.call(arr)</code></p>
+<p>那么里面的 this 就是 <code>arr</code> 了。</p>
+<p>总之，this 就是你 call 一个函数时，传入的第一个参数。</p>
+<p>（完）</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

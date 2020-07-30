@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="徐航宇的个人博客">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        DOM 事件与事件委托 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Love Code / Love Design </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/head.png" />
+        </div>
+        <div class="name">
+            <i>徐航宇</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#DOM-%E4%BA%8B%E4%BB%B6%E4%B8%8E%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98"><span class="toc-text">DOM 事件与事件委托</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6"><span class="toc-text">1. 点击事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98"><span class="toc-text">2. 事件委托</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Love Code / Love Design </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        DOM 事件与事件委托
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-05-28 17:39:41</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#JavaScript" title="JavaScript">JavaScript</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <h1 id="DOM-事件与事件委托"><a href="#DOM-事件与事件委托" class="headerlink" title="DOM 事件与事件委托"></a>DOM 事件与事件委托</h1><p>本文写于 2020 年 5 月 28 日</p>
+<p>先思考一个问题：<strong>我们如何给一百个 button 添加点击事件？</strong></p>
+<p>遍历？</p>
+<p>那岂不是要添加一百个监听器？</p>
+<p>这就需要事件委托了。</p>
+<p>其实这根本不是一个很难的概念，看下去，本文并不长。</p>
+<h2 id="1-点击事件"><a href="#1-点击事件" class="headerlink" title="1. 点击事件"></a>1. 点击事件</h2><p>现在我们拥有三个元素，他们嵌套成为爷爷、爸爸、儿子：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&#x27;grandpa&#x27;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&#x27;father&#x27;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&#x27;son&#x27;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>然后分别给他们仨添加不同的三个事件监听。</p>
+<p>因为<strong>事件冒泡</strong>，我们能知道他们<strong>都会执行</strong>，并且会按照一定顺序执行。</p>
+<p>但是不同浏览器的<strong>顺序是不一样的</strong>。</p>
+<p>IE 认为应该调用 <code>.son</code> 的事件，网景认为应该调用 <code>.grandpa</code>。</p>
+<p>后来 2002 年，W3C 发布了标准：</p>
+<ul>
+<li>先按照从外向内——事件<strong>捕获</strong>；</li>
+<li>在按照从内向外——事件<strong>冒泡</strong>。</li>
+</ul>
+<p>整个过程就是——有监听函数就调用，没有就跳过。</p>
+<p>开发者可以自己选择把最外层的事件，放在捕获阶段还是冒泡阶段。</p>
+<p>如何选择呢？其实就是我们最熟悉的<code>addEventListener</code>。</p>
+<p>我们经常会用它去绑定事件，我们一般都只会传入两个参数。</p>
+<p>可实际上这个函数有 <strong>3 个参数</strong>。</p>
+<p>我们可以在第三个参数，放置一个布尔值，例如：<code>xxx.addEventListener(&#39;click&#39;, fn, bool)</code></p>
+<p>如果是<code>true</code>，则是<strong>捕获方式（从外向内）</strong>；如果不写，或者是<code>falsy</code>值，则是<strong>冒泡（从内向外）</strong>。</p>
+<p><strong>顺序问题</strong></p>
+<p>上面说了，先捕获后冒泡。</p>
+<p>那我同时给一个元素，先挂一个冒泡，再挂一个捕获——谁先触发？</p>
+<p>谁先写，谁先触发，因为他们是<strong>同级的</strong>！</p>
+<p><strong>可以取消吗？</strong></p>
+<p>捕获不可以取消，但是冒泡可以取消。（有些事件不能取消，比如滚动事件）</p>
+<p><code>e.stopPropagation()</code>中断冒泡。</p>
+<h2 id="2-事件委托"><a href="#2-事件委托" class="headerlink" title="2. 事件委托"></a>2. 事件委托</h2><p>回到我们刚开始的问题：<strong>我们如何给一百个 button 添加点击事件？</strong></p>
+<p>肯定不是遍历。</p>
+<p>我们可以直接给父元素添加事件，例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">father.addEventListener(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="params">e</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(e.target);</span><br><span class="line">  <span class="built_in">console</span>.log(e.currentTarget);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>这里看到，我们传入了一个 e，这个 e 可以尝试打印出来，就会发现其实是<code>MouseEvent</code>。</p>
+<p>这是一个对象，里面有各种各样的数据，比如我们需要的<code>target</code>。</p>
+<p><code>target</code>就是用户所点击的元素！</p>
+<p>也就是说如果 father 有 10 个孩子，从 child1 一直到 child10，<strong>我们点谁，这个 target 就是谁</strong>。</p>
+<p>而<code>e.currentTarget</code>呢，和<code>e.target</code>是有区别的！</p>
+<p>简单来说呢 <code>target</code> 是<strong>被操作的元素</strong>，<code>currentTarget</code> 是<strong>被监听的元素</strong>。</p>
+<p>在这个例子中，<code>currentTarget</code> 恒为 father，<code>target</code> 则会随着点击发生改变。</p>
+<p>最后说一下，<strong>JS 其实是不支持事件的！</strong>支持事件的是浏览器，<code>addEventListener</code> 是浏览器的 DOM 提供的。</p>
+<p>（完）</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="徐航宇的个人博客">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        p5.js 完成网页特效：星际穿越 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Love Code / Love Design </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/head.png" />
+        </div>
+        <div class="name">
+            <i>徐航宇</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%98%9F%E9%99%85%E7%A9%BF%E8%B6%8A"><span class="toc-text">星际穿越</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#00-%E6%80%9D%E8%B7%AF%E6%9E%84%E6%83%B3"><span class="toc-text">00 思路构想</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#01-%E5%88%9B%E5%BB%BA%E6%98%9F%E6%98%9F"><span class="toc-text">01 创建星星</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#02-%E7%A7%BB%E5%8A%A8%E6%98%9F%E6%98%9F"><span class="toc-text">02 移动星星</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#03-%E5%A4%A7%E5%8A%9F%E5%91%8A%E6%88%90"><span class="toc-text">03 大功告成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#04-%E9%99%84%E5%BD%95%EF%BC%9A%E5%AE%8C%E6%95%B4%E4%BB%A3%E7%A0%81"><span class="toc-text">04 附录：完整代码</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Love Code / Love Design </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        p5.js 完成网页特效：星际穿越
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-02-29 23:08:37</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#JavaScript" title="JavaScript">JavaScript</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <h1 id="星际穿越"><a href="#星际穿越" class="headerlink" title="星际穿越"></a>星际穿越</h1><p>本文写于 2020 年 2 月 29 日</p>
+<p>星际穿越，是模仿漫天星辰扑面而来的感觉。</p>
+<p>最关键的在于对透视的掌握。</p>
+<blockquote>
+<p>参考资料：The Coding Train</p>
+</blockquote>
+<h2 id="00-思路构想"><a href="#00-思路构想" class="headerlink" title="00 思路构想"></a>00 思路构想</h2><ol>
+<li>星星是一个圆，会随机的出现在屏幕的任何位置；</li>
+<li>星星会从远处到眼前：<strong>圆的大小</strong>来表示远近；</li>
+<li>星星的运动轨迹：连接星星与中心点的射线，向外运动。</li>
+</ol>
+<h2 id="01-创建星星"><a href="#01-创建星星" class="headerlink" title="01 创建星星"></a>01 创建星星</h2><p>我们可以使用一个 Star 类，来用它表示我们的星星。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Star</span> </span>&#123; &#125;</span><br></pre></td></tr></table></figure>
+
+<p>星星的成员变量有哪些？星星的位置、大小和运动的速度：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Star</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    <span class="built_in">this</span>.x = random(-width / <span class="number">2</span>, width / <span class="number">2</span>) <span class="comment">// 随机x坐标</span></span><br><span class="line">    <span class="built_in">this</span>.y = random(-width / <span class="number">2</span>, width / <span class="number">2</span>) <span class="comment">// 随机y坐标</span></span><br><span class="line">    <span class="built_in">this</span>.z = random(<span class="number">0</span>, width) <span class="comment">// 随机z坐标</span></span><br><span class="line">    <span class="built_in">this</span>.r = <span class="number">25</span> + random(<span class="number">-2</span>, <span class="number">3</span>) <span class="comment">// 随机半径</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 在当前位置画圆</span></span><br><span class="line">  show() &#123;</span><br><span class="line">    fill(<span class="number">255</span>)</span><br><span class="line">    noStroke()</span><br><span class="line">    ellipse(<span class="built_in">this</span>.x, <span class="built_in">this</span>.y, <span class="built_in">this</span>.r, <span class="built_in">this</span>.r)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里为什么是-width/2 到 width/2 呢？</p>
+<p>而且为什么 y 的值也要取决于 width 呢？</p>
+<p>因为 p5 的原点是在左上角，我们的星星从原点计算起会很方便，一会儿我们会通过一条语句，将整个画面往右下挪动，使原点在画面中呈现！</p>
+<p>y 的值之所以取决于 width，是因为电脑一般都是长方形，并且 width&gt;height。</p>
+<p>如果是分别根据 width 和 height 随机值，就会导致分布不均匀，变成蝴蝶型（左右两边集中，上下很稀疏）。</p>
+<p>我们还需要什么？</p>
+<p>因为星星会不断的移动，所以说我们需要绘制它移动的轨迹。但是首先，我们需要初始化星星：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> stars = []; <span class="comment">// 存放星星的数组</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setup</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> starsNumber = <span class="number">100</span>; <span class="comment">// 星星的个数</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; starsNumber; i++) &#123;</span><br><span class="line">    <span class="keyword">const</span> temp = <span class="keyword">new</span> Star();</span><br><span class="line">    stars.push(temp);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>现在我们初始化了 100 个星星，但是画布忘记绘制了。我们不妨利用 css 和 js，让用户浏览器无论是多大，我们都刚刚好<strong>全屏显示</strong>。</p>
+<p>让我们来写一点点 CSS：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">* &#123;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100vw</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100vh</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后需要用到：<code>document.body.offsetWidth</code>获取宽度，同理，<code>offsetHeight</code>可以获取高度：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setup</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> wid = <span class="built_in">document</span>.body.offsetWidth;</span><br><span class="line">  <span class="keyword">const</span> heig = <span class="built_in">document</span>.body.offsetHeight;</span><br><span class="line">  createCanvas(wid, heig);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 这里放刚刚新建星星的代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意，这里不要使用<code>width</code>与<code>height</code>作为变量名。因为 p5 中，width 与 height 就代表当前画布宽高。</p>
+<p>所以归纳一下，第一阶段，在 setup 方法和 draw 方法中，应该这么写：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> stars = [];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setup</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> wid = <span class="built_in">document</span>.body.offsetWidth;</span><br><span class="line">  <span class="keyword">const</span> heig = <span class="built_in">document</span>.body.offsetHeight;</span><br><span class="line">  createCanvas(wid, heig);</span><br><span class="line">  <span class="keyword">const</span> starsNumber = <span class="number">100</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; starsNumber; i++) &#123;</span><br><span class="line">    <span class="keyword">const</span> temp = <span class="keyword">new</span> Star();</span><br><span class="line">    stars.push(temp);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">draw</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  background(<span class="string">&#x27;#000&#x27;</span>);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; stars.length; i++) &#123;</span><br><span class="line">    stars[i].show();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样就在屏幕上绘制出了 100 个静态的星星。</p>
+<h2 id="02-移动星星"><a href="#02-移动星星" class="headerlink" title="02 移动星星"></a>02 移动星星</h2><p>移动星星，意味着改变位置，连续的改变位置就会变成移动。因为我们前面说到过，使用一个对象的方法创建的圆，再调用该对象的该方法时，便会重新创建，原来的圆就会消失。</p>
+<p>这一步看起来很复杂，但其实非常简单。</p>
+<p>我们在更新函数里面，只需要做两件事情：</p>
+<ol>
+<li>减少 z，因为 z 是星星离我们的距离；</li>
+<li>如果星星跑到了我们背后，他们就该重置位置在离我们最远处了。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">update(speed) &#123;</span><br><span class="line">   z = z - seed;</span><br><span class="line">   <span class="keyword">if</span>(z &lt;= <span class="number">1</span>) &#123;</span><br><span class="line">     z = width;</span><br><span class="line">     x = random(<span class="number">0</span>, width);</span><br><span class="line">     y = random(<span class="number">0</span>, height);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里可能有人会疑惑：为什么第一次初始化星星的时候，是<code>random(0, width)</code>，现在让 z 的值直接等于 width 呢？</p>
+<p>因为我们第一打开网页的时候，星星出现，这个时候星星应该是有远的有近的。</p>
+<p>可是当我们星星飞走了，重新生成的时候，他就该从无限远处进入视野，而不是直接出现在眼前。</p>
+<p>接下来我们不需要关心 x 和 y 的值应该怎样变化，因为可以通过某种计算，将 z 的变化，<strong>线性的</strong>表现在 x，y 上。</p>
+<p><em>这里需要提到一点，我们在这里利用了透视的原理，实际上，x 与 y 的值是不会改变的，只是我们的透视视角，让他们看起来，是一条斜线。</em></p>
+<p>更新完了位置，我们需要在 show 方法中，通过计算表示出新的 x、y 了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">show() &#123;</span><br><span class="line">  fill(<span class="number">255</span>); <span class="comment">// 上色</span></span><br><span class="line">  noStroke()</span><br><span class="line">  <span class="keyword">const</span> nowX = map(<span class="built_in">this</span>.x / <span class="built_in">this</span>.z, <span class="number">-1</span>, <span class="number">1</span>, -width / <span class="number">2</span>, width / <span class="number">2</span>)</span><br><span class="line">    <span class="keyword">const</span> nowY = map(<span class="built_in">this</span>.y / <span class="built_in">this</span>.z, <span class="number">-1</span>, <span class="number">1</span>, -width / <span class="number">2</span>, width / <span class="number">2</span>)</span><br><span class="line">  <span class="keyword">const</span> nowR = map(<span class="built_in">this</span>.z, <span class="number">0</span>, width, <span class="built_in">this</span>.r, <span class="number">0</span>)</span><br><span class="line">  ellipse(nowX, nowY, nowR, nowR)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>紧接着我们只需要在主方法里，不断的循环<code>update()</code>和<code>show()</code>即可！</p>
+<h2 id="03-大功告成"><a href="#03-大功告成" class="headerlink" title="03 大功告成"></a>03 大功告成</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">draw</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  background(<span class="number">0</span>);</span><br><span class="line">  translate(width / <span class="number">2</span>, height / <span class="number">2</span>);</span><br><span class="line">  <span class="keyword">for</span>(int i = <span class="number">0</span>; i &lt; stars.length; i++) &#123;</span><br><span class="line">    stars[i].update(speed);</span><br><span class="line">    stars[i].show();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="04-附录：完整代码"><a href="#04-附录：完整代码" class="headerlink" title="04 附录：完整代码"></a>04 附录：完整代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> stars = [];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setup</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> wid = <span class="built_in">document</span>.body.offsetWidth;</span><br><span class="line">  <span class="keyword">const</span> heig = <span class="built_in">document</span>.body.offsetHeight;</span><br><span class="line">  createCanvas(wid, heig);</span><br><span class="line">  <span class="keyword">let</span> starsNumber = <span class="built_in">parseInt</span>((width * height) / <span class="number">6500</span>);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; starsNumber; i++) &#123;</span><br><span class="line">    <span class="keyword">const</span> temp = <span class="keyword">new</span> Star();</span><br><span class="line">    stars.push(temp);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">draw</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  translate(wid / <span class="number">2</span>, heig / <span class="number">2</span>);</span><br><span class="line">  background(<span class="string">&#x27;#000&#x27;</span>);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; stars.length; i++) &#123;</span><br><span class="line">    stars[i].update(<span class="number">15</span>);</span><br><span class="line">    stars[i].show();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Star</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    <span class="built_in">this</span>.x = random(-width / <span class="number">2</span>, width / <span class="number">2</span>);</span><br><span class="line">    <span class="built_in">this</span>.y = random(-width / <span class="number">2</span>, width / <span class="number">2</span>);</span><br><span class="line">    <span class="built_in">this</span>.z = random(<span class="number">0</span>, width);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">this</span>.r = <span class="number">25</span> + random(<span class="number">-2</span>, <span class="number">3</span>);</span><br><span class="line">    <span class="built_in">this</span>.isMiss = <span class="literal">false</span>;</span><br><span class="line">    <span class="built_in">this</span>.sx;</span><br><span class="line">    <span class="built_in">this</span>.sy;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  update(speed) &#123;</span><br><span class="line">    <span class="built_in">this</span>.z -= speed;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">this</span>.z &lt;= <span class="number">1</span>) &#123;</span><br><span class="line">      <span class="built_in">this</span>.x = random(-width / <span class="number">2</span>, width / <span class="number">2</span>);</span><br><span class="line">      <span class="built_in">this</span>.y = random(-width / <span class="number">2</span>, width / <span class="number">2</span>);</span><br><span class="line">      <span class="built_in">this</span>.z = width;</span><br><span class="line">      <span class="built_in">this</span>.isMiss = <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  show() &#123;</span><br><span class="line">    fill(<span class="number">255</span>);</span><br><span class="line">    noStroke();</span><br><span class="line">    <span class="keyword">const</span> nowX = map(<span class="built_in">this</span>.x / <span class="built_in">this</span>.z, <span class="number">-1</span>, <span class="number">1</span>, -width / <span class="number">2</span>, width / <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">const</span> nowY = map(<span class="built_in">this</span>.y / <span class="built_in">this</span>.z, <span class="number">-1</span>, <span class="number">1</span>, -width / <span class="number">2</span>, width / <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">if</span> (!<span class="built_in">this</span>.isMiss) &#123;</span><br><span class="line">      <span class="built_in">this</span>.sx = nowX;</span><br><span class="line">      <span class="built_in">this</span>.sy = nowY;</span><br><span class="line">      <span class="built_in">this</span>.isMiss = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">const</span> nowR = map(<span class="built_in">this</span>.z, <span class="number">0</span>, width, <span class="built_in">this</span>.r, <span class="number">0</span>);</span><br><span class="line">    ellipse(nowX, nowY, nowR, nowR);</span><br><span class="line"></span><br><span class="line">    stroke(<span class="number">255</span>);</span><br><span class="line">    triangle(</span><br><span class="line">      nowX + nowR / <span class="number">3</span>,</span><br><span class="line">      nowY + nowR / <span class="number">3</span>,</span><br><span class="line">      nowX - nowR / <span class="number">3</span>,</span><br><span class="line">      nowY - nowR / <span class="number">3</span>,</span><br><span class="line">      <span class="built_in">this</span>.sx,</span><br><span class="line">      <span class="built_in">this</span>.sy</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里我加上了射线，其实非常简单，就是在星星的新位置和起始点画三角形即可。</p>
+<p>（完）</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

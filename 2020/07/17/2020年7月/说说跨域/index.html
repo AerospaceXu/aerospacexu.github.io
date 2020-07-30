@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="徐航宇的个人博客">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        说说跨域 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Love Code / Love Design </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/head.png" />
+        </div>
+        <div class="name">
+            <i>徐航宇</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AF%B4%E8%AF%B4%E8%B7%A8%E5%9F%9F"><span class="toc-text">说说跨域</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8C%E6%BA%90%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">同源是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%A8%E5%9F%9F"><span class="toc-text">跨域</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-CORS"><span class="toc-text">1. CORS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-JSONP"><span class="toc-text">2. JSONP</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B0%81%E8%A3%85-JSONP"><span class="toc-text">封装 JSONP</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-postMessage%E3%80%81websocket%E3%80%81Node-%E4%B8%AD%E9%97%B4%E4%BB%B6%E4%BB%A3%E7%90%86%E3%80%81nginx-%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86"><span class="toc-text">3. postMessage、websocket、Node 中间件代理、nginx 反向代理</span></a></li></ol></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Love Code / Love Design </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        说说跨域
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-07-17 10:39:22</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#JavaScript" title="JavaScript">JavaScript</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <h1 id="说说跨域"><a href="#说说跨域" class="headerlink" title="说说跨域"></a>说说跨域</h1><p>本文写于 2020 年 7 月 17 日</p>
+<p>大家有被盗号的经历吗？</p>
+<p>就是那种，对盗来的号的每个好友发送一遍：“xxx，在吗？借我 200 块钱，江湖救急！”</p>
+<p>这是多恐怖的事情。</p>
+<p>假设你登录了网页版 QQ，我们知道所有的数据其实都是 JS 请求服务器得来的。</p>
+<p>那如果我写一个“黑客网站”，你只要打开我的网站，我就会请求 QQ 的服务器，以得到你的 QQ 数据，这样就能向每一个好友借一遍钱（嘿嘿嘿）。</p>
+<p>黑客网站发送的请求和官方网站发送的请求有什么区别呢？</p>
+<p>答：<code>refer</code> 不同。</p>
+<p>我们可以打开开发者工具，进入 Network，筛选出 XHR（就是 XMLHttpRequest 对象），就可以看到我们发送过的 Ajax 请求。请求中有一个特殊的字段：<code>Referer</code>，它就是发送请求的网站域名，比如百度发的请求，<code>referer</code> 就是 <code>https://www.baidu.com</code>。</p>
+<p>那既然如此，我们完全可以在后台检测 <code>referer</code>，这样就可以知道请求是从哪里发来的，从而实现「同源」。</p>
+<p>但是万一程序员忘记了怎么办？浏览器应该主动的预防这种偷数据的行为！</p>
+<h2 id="同源是什么？"><a href="#同源是什么？" class="headerlink" title="同源是什么？"></a>同源是什么？</h2><p>综上所述，浏览器为了用户隐私，设置了严格的同源策略。</p>
+<p>所谓同源策略，就是说<strong>如果 JS 运行在源 A 中，那么就只允许 JS 获取源 A 的数据，不允许获取源 B 或 C 或 D 的数据</strong>——比如刚刚说的黑客 QQ 空间。</p>
+<p>那如果 <code>mywebsite.com</code> 引用了 <code>cdn.com/jQuery.js</code>，这算是跨域吗？</p>
+<p>不算，因为 <code>jQuery.js</code> 是运行在 <code>baidu.com</code> 中的，他和 <code>cdn.com</code> 毫无关系——虽然 <code>jQuery.js</code> 是从他那里下载的。</p>
+<p>可以说<strong>浏览器安全的基石就是“同源政策”。</strong></p>
+<p>在 1995 年，同源政策由<strong>网景</strong>引入了浏览器。并且到目前为止，<strong>所有浏览器</strong>都在实行这个政策。</p>
+<p>最初它的含义是指：**A 网页设置的 Cookie，B 网页不能打开，除非这两个网页”同源”**。</p>
+<p>这里所谓的“同源”指的是三个相同：</p>
+<ol>
+<li>协议相同</li>
+<li>域名相同</li>
+<li>端口相同</li>
+</ol>
+<p>协议、域名和端口这三样在我之前一篇文章中讲过，都是 URL 的组成部分。</p>
+<p>比如说 <code>https://www.baidu.com:8080</code> 中，<code>https://</code> 就是协议，<code>www.baidu.com</code> 就是域名，<code>:8080</code> 就是端口号。</p>
+<p>这三个东西必须<strong>严格相同</strong>，否则浏览器将视为<strong>不同源</strong>。</p>
+<p>举几个例子：</p>
+<ul>
+<li><code>baidu.com</code> 和 <code>www.baidu.com</code> 不同源（域名不同）；</li>
+<li><code>www.baidu.com/s</code> 和 <code>www.baidu.com</code> 同源；</li>
+<li><code>http://www.baidu.com:8080</code> 和 <code>https://www.baidu.com:8080</code> 不同源（协议不同）；</li>
+<li><code>baidu.com:8080</code> 和 <code>baidu.com:80</code> 不同源（端口不同）。</li>
+</ul>
+<p><strong>不同源好不好？</strong></p>
+<p>肯定不好呀，如果不同源，用户隐私就会受到严重的威胁！</p>
+<p>刚刚说了如果没有同源的话，黑客网页可以「偷走」你正在访问的网页的一些数据，甚至他还能进行一些操作。这是怎么做到的呢？</p>
+<p>其实就是 <code>Cookie</code>。所谓 <code>Cookie</code> 就是“小型文本文件”，是网站为了辨别用户身份而储存在浏览器本地上的数据。</p>
+<p>如果 <code>Cookie</code> 包含了某些隐私信息——比如支付宝余额——这让黑客网站随便就拿到了，那该是多么可怕的一件事情。（甚至于 <code>Cookie</code> 有时会保存登录信息！）</p>
+<p>因此，如果没有「同源策略」，黑客网站就能直接操作你的账户！</p>
+<p>现在，随着互联网的发展，”同源政策”越来越严格。<strong>目前如果不是同源，共有三种行为受到限制：</strong></p>
+<ol>
+<li><code>Cookie</code>, <code>LocalStorage</code>, <code>IndexDB</code> 无法读取；</li>
+<li>DOM 无法获得；</li>
+<li>AJAX 请求不能发送。</li>
+</ol>
+<h2 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h2><p>刚刚说了很多因为「同源策略」而不能实现的操作。但是如果我真的需要操作这些怎么办呢？</p>
+<p>比如两个网站有某些合作，甚至说这俩网站本来就都是我的，该怎么办？</p>
+<p>这就需要用到<strong>跨域</strong>了。</p>
+<p>先看看维基百科的解释：</p>
+<blockquote>
+<p>跨域资源共享，用于让网页的受限资源能够被其他域名的页面访问的一种机制。</p>
+<p>通过该机制，页面能够自由地使用不同源的图片、样式、脚本、<code>iframes</code> 以及视频。</p>
+<p>一些跨域的请求常常会被同源策略所禁止的。</p>
+<p>跨源资源共享定义了一种方式，为的是浏览器和服务器之间能互相确认是否足够安全以至于能使用跨源请求</p>
+</blockquote>
+<h3 id="1-CORS"><a href="#1-CORS" class="headerlink" title="1. CORS"></a>1. CORS</h3><p>跨域有许多种方法，先说目前最常见也是比较新的一种方式：<strong>CORS</strong>。</p>
+<p>CORS 是一个需要浏览器和服务器同时支持的技术。</p>
+<p>首先需要先进行声明，在 a 网站<strong>响应头</strong>里写上，b 网站可以访问就行了！</p>
+<p>涉及该操作的属性是<code>Access-Control-Allow-Origin</code>。顾名思义嘛，访问-控制-允许-源。</p>
+<p>比如 Node.js 的后台程序，可以写成如下形式：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (path === <span class="string">&#x27;user.json&#x27;</span>) &#123;</span><br><span class="line">  response.setHeader(<span class="string">&#x27;Content-Type&#x27;</span>, <span class="string">&#x27;text/json;charset=utf-8&#x27;</span>);</span><br><span class="line">  response.setHeader(<span class="string">&#x27;Access-Control-Allow-Origin&#x27;</span>, <span class="string">&#x27;https://b.com&#x27;</span>);</span><br><span class="line">  response.end();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>就可以使 b 网站成功通过 Ajax 拿到 a 网站的 user.json。</p>
+<p>CORS 就这么简单。</p>
+<p>“你们自己商量好，想要允许跨域的话只需要在请求头声明即可，但是数据泄漏了可与我无关。 ——浏览器”</p>
+<h3 id="2-JSONP"><a href="#2-JSONP" class="headerlink" title="2. JSONP"></a>2. JSONP</h3><p><strong>JSONP 和 JSON，有什么关系嘛？半毛钱关系都没有。</strong></p>
+<p>当没有 CORS 的时候，大家的跨域方式就是 JSONP。</p>
+<p>我们虽然不能获取 <code>https://baidu.com/user.json</code>，但是我们可以获取 <code>https://baidu.com/user.js</code> 啊。</p>
+<p>那我们能不能将数据放在 user.js 里面，例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.data = &#123;&#123; data &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后在后台服务器中，当我们访问的路径是 <code>https://baidu.com/user.js</code> 时，后台就将替换 <code>&#123;&#123; data &#125;&#125;</code> 为 <code>user.json</code> 的数据。</p>
+<p>那么在我们希望实现跨域的网站中，写上：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> script = <span class="built_in">document</span>.createElement(<span class="string">&#x27;script&#x27;</span>);</span><br><span class="line">script.src = <span class="string">&#x27;https://baidu.com/user.js&#x27;</span>;</span><br><span class="line"><span class="built_in">document</span>.body.appendChild(script);</span><br></pre></td></tr></table></figure>
+
+<p>这个时候，我们打开网页控制台，输入：<code>window.data</code>，就能看到刚刚替换的 json 数据了！</p>
+<p>如果想要拿到数据，可以给刚刚创建的 script 标签，添加一个 onload 事件。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">script.onload = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">window</span>.data);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>如果觉得这样比较丑，我们还可以用另一种方式：函数。</p>
+<p>在 <code>user.js</code> 中，我们不写 <code>window.data = &#123;&#123; data &#125;&#125;</code> 了，我们写 <code>window.getData(&#123;&#123; data &#125;&#125;)</code>。</p>
+<p>那么当我们请求的时候，是不是这个函数就被执行了？</p>
+<p>所以只要在我们自己的 js 中写：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.getData = <span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(data);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>当然，我们为了避免重名，所以可以用一个骚操作——<strong>用随机数</strong>。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> random = <span class="built_in">Math</span>.random().toString();</span><br><span class="line"><span class="built_in">window</span>[random] = <span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(data);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">...一些操作...</span><br><span class="line"></span><br><span class="line">script.src = <span class="string">`https://baidu.com/user.js?callback=<span class="subst">$&#123;random&#125;</span>`</span>;</span><br></pre></td></tr></table></figure>
+
+<p>接下来在后台程序里拿到我们的查询参数，将 user.js 直接整个的写成 <code>window[query.callback]( jsonData )</code>。</p>
+<p>这种方式看起来就高级很多了，这就是一个回调呀，跨域的回调！</p>
+<p>但实际上，这种办法还是需要进行 <code>referer</code> 检查，不然依然是<strong>不安全的</strong>。</p>
+<p><strong>处女座提示：</strong></p>
+<p>如果不希望拿到数据后 script 标签依然存在，那么可以用刚刚的 onload 事件，当 script 标签 onload 时，remove 自身。</p>
+<h4 id="封装-JSONP"><a href="#封装-JSONP" class="headerlink" title="封装 JSONP"></a>封装 JSONP</h4><p>上面这么长一串代码，我都看吐了。那就来封装一下吧！</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">jsonp</span>(<span class="params">url</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> random = <span class="built_in">Math</span>.random().toString();</span><br><span class="line">    <span class="built_in">window</span>[random] = <span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">      resolve(data);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">const</span> script = <span class="built_in">document</span>.createElement(<span class="string">&#x27;script&#x27;</span>);</span><br><span class="line">    script.src = <span class="string">`<span class="subst">$&#123;url&#125;</span>?callback=<span class="subst">$&#123;random&#125;</span>`</span>;</span><br><span class="line">    script.onload = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      script.remove();</span><br><span class="line">    &#125;;</span><br><span class="line">    script.onerror = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      reject();</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="built_in">document</span>.body.appendChild(script);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>调用的时候只需要：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">jsonp(<span class="string">&#x27;https://baidu.com/user.js&#x27;</span>).then(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(data);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>最后，这里的数据是不仅仅可以放 JSON，我们可以放任何东西，比如 xml。（所以叫做 JSONP 是比较不合理的）</p>
+<p>并且 JSONP 花了我们这么多的篇幅，也就只实现了 CORS 一样的功能（<strong>并且因为是使用的 script 标签，所以只能发 get 请求，不像 post 能拿到状态码</strong>），可见他多么不好用——但是 IE 不兼容 CORS。</p>
+<h3 id="3-postMessage、websocket、Node-中间件代理、nginx-反向代理"><a href="#3-postMessage、websocket、Node-中间件代理、nginx-反向代理" class="headerlink" title="3. postMessage、websocket、Node 中间件代理、nginx 反向代理"></a>3. postMessage、websocket、Node 中间件代理、nginx 反向代理</h3><p>这些方式能跨域，但是我们一般不会去使用。</p>
+<p>比如，严格意义上来说 postMessage 是用来做网页之间的通信的，他的本质目的不是为了跨域，只是有时候实在没有办法了，我们可以试试 postMessage。并且他的问题也是，兼容性不强。如果我们可以使用它，那么 CORS 一般也能用了。</p>
+<p>websocket 几乎是门新技术了，太复杂了。</p>
+<p>其他的基本都是后端的事情，前端有前端的方式嘛。</p>
+<p>（完）</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

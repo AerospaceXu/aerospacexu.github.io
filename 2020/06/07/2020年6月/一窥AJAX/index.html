@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="徐航宇的个人博客">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        一窥 AJAX - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Love Code / Love Design </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/head.png" />
+        </div>
+        <div class="name">
+            <i>徐航宇</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E7%AA%A5-AJAX"><span class="toc-text">一窥 AJAX</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Love Code / Love Design </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        一窥 AJAX
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-06-07 14:42:10</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#JavaScript" title="JavaScript">JavaScript</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <h1 id="一窥-AJAX"><a href="#一窥-AJAX" class="headerlink" title="一窥 AJAX"></a>一窥 AJAX</h1><p>本文写于 2020 年 6 月 7 日</p>
+<p>AJAX 这个词非常常见，如果使初学者，说不定还会非常害怕这个名字看起来非常高端、非常难的技术。</p>
+<p>AJAX，全称 Async JavaScript And XML。它不是 JavaScript 的规范，它只是一个哥们“发明”的缩写，意思就是<strong>用 JavaScript 执行异步网络请求</strong>。</p>
+<p>就算是在当年它刚刚出现的时候，也不是一个新技术，而是一个新名字。</p>
+<p>技术领域其实经常这样 —— 大家都在用某一个方法去写代码，突然有一天有个哥们儿觉得，要不咱给这个技术做个规范、起个名字吧！然后就有了一个新的技术名词，但其实并不是一个新的技术。</p>
+<p>那么我们来思考一下：<strong>AJAX 为什么需要存在呢？</strong></p>
+<p>我最早自学前端的时候，听人家说：”JavaScript 有个技术叫做 AJAX 非常牛逼！“</p>
+<p>我就去学了。</p>
+<p>可我那个时候还是一个”小白菜“（很菜的小白），怎么可能看两篇教程就能懂呢？于是很自然的放弃了。</p>
+<p>但等我一直学到了 Vue, React 我都没有遇到过 AJAX 。</p>
+<p>难道……AJAX 已死？</p>
+<p>那肯定是扯淡。</p>
+<p>这就是之前说的，<strong>AJAX 不是个什么牛逼的新技术，他只是对已有技术的总结</strong>，我们已经在 coding 中不知不觉用到了类 AJAX 的代码。</p>
+<p>对 Web 来说，运作的原理就是一次 HTTP 请求对应一个页面。</p>
+<p>但如果我非要让用户再不刷新的情况下体验新内容呢？我可不可以用 JS 和服务器后端交换数据，但是并<strong>不去发送 HTTP 请求</strong>，而是<strong>用 JS 将新的数据动态写到 HTML 中</strong>？</p>
+<p>这样就完成了不刷新的页面和数据更新。</p>
+<p>最早大规模使用 AJAX 的就是大名鼎鼎的 Gmail。Gmail 的页面在首次加载后，剩下的所有数据都依赖于 AJAX 进行更新。</p>
+<p><strong>如何使用 AJAX？</strong></p>
+<p>用 JavaScript 写 AJAX 并不复杂，唯一需要注意的就是 AJAX 是异步执行的，也就是说需要通过回调函数获得响应。</p>
+<p>我们可以通过 <code>XMLHttpRequest</code> 构造函数来创建 <code>XMLHttpRequest</code> 对象来完成 AJAX。</p>
+<p>什么？你问我什么是这个 <code>XML...bla..</code> 对象？在 JS 中，<code>Object()</code> 可以构造对象、<code>String()</code> 可以构造字符串、<code>Array()</code> 可以构造数组。<code>XMLHttpRequest</code> 也只是一个构造某种对象的构造函数罢了。</p>
+<p>看代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">success</span>(<span class="params">text</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`成功啦，<span class="subst">$&#123;text&#125;</span>`</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fail</span>(<span class="params">code</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`失败啦，<span class="subst">$&#123;code&#125;</span>`</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> request = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line"></span><br><span class="line">request.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (request.readyState === <span class="number">4</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (request.status === <span class="number">200</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> success(request.responseText);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> fail(request.status);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">request.open(<span class="string">&#x27;GET&#x27;</span>, <span class="string">&#x27;/index.html&#x27;</span>);</span><br><span class="line">request.send();</span><br></pre></td></tr></table></figure>
+
+<p>接下来我们来一点点剖析代码。</p>
+<p>首先我们看最后，<code>request.open()</code> 是规定了请求的方式与 URL 参数；最后一行的 <code>request.send()</code> 是真正发出请求；<code>request.onreadystatechange</code> 其实是对请求进行监听。</p>
+<p>前两个肯定没有问题，问题就在于第三个，监听什么呢？</p>
+<p>监听的是当前的状态。</p>
+<blockquote>
+<p>官方解答：<code>XMLHttpRequest.readyState</code> 属性返回一个 <code>XMLHttpRequest</code> 代理当前所处的状态。</p>
+</blockquote>
+<p>完美看不懂。</p>
+<p>其实本质上就是说，当前你进行到哪一个阶段了。</p>
+<p>如果你 <code>new XMLHttpRequest()</code> ，那么这个时候你的 <code>request.readyState</code> 就会变成 0，并且 <code>onreadystatechange</code> 事件还会被触发，</p>
+<p>当我们调用了 <code>request.open()</code> 之后， <code>request.readyState</code> 就会变成 1，同时触发 <code>onreadystatechange</code>。</p>
+<p>以此类推。</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>状态</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>UNSENT</td>
+<td>代理被创建，但尚未调用 open() 方法。</td>
+</tr>
+<tr>
+<td>1</td>
+<td>OPENED</td>
+<td>open() 方法已经被调用。</td>
+</tr>
+<tr>
+<td>2</td>
+<td>HEADERS_RECEIVED</td>
+<td>send() 方法已经被调用，并且头部和状态已经可获得。</td>
+</tr>
+<tr>
+<td>3</td>
+<td>LOADING</td>
+<td>下载中； responseText 属性已经包含部分数据。</td>
+</tr>
+<tr>
+<td>4</td>
+<td>DONE</td>
+<td>下载操作已完成。</td>
+</tr>
+</tbody></table>
+<p>此时，我们就能看懂这段代码了。</p>
+<p>我们首先准备一个请求的包包，然后往包包里塞东西，并且每一个动作都有一个对应的数值、切换状态会自动触发一个事件。</p>
+<p>也就是说，我们只需要：</p>
+<ol>
+<li>发出请求；</li>
+<li>接受请求；</li>
+<li>判断请求；</li>
+<li>处理请求结果；</li>
+<li>请求结束。</li>
+</ol>
+<p>就完成了一个完美的 AJAX。</p>
+<p>（完）</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

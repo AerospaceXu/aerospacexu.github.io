@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="徐航宇的个人博客">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        JS 的 new 是个啥？ - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Love Code / Love Design </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/head.png" />
+        </div>
+        <div class="name">
+            <i>徐航宇</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JS-%E7%9A%84-new-%E6%98%AF%E4%B8%AA%E5%95%A5%EF%BC%9F"><span class="toc-text">JS 的 new 是个啥？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#OOP-%E6%98%AF%E5%95%A5"><span class="toc-text">OOP 是啥</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B2%A1%E6%9C%89-class-%E7%9A%84-JS"><span class="toc-text">没有 class 的 JS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="toc-text">构造函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#new-%E4%B8%80%E4%B8%AA%E5%AF%B9%E8%B1%A1"><span class="toc-text">new 一个对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#new-%E5%91%BD%E4%BB%A4%E7%9A%84%E5%8E%9F%E7%90%86"><span class="toc-text">new 命令的原理</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Love Code / Love Design </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        JS 的 new 是个啥？
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2019-11-25 22:30:00</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#JavaScript" title="JavaScript">JavaScript</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <h1 id="JS-的-new-是个啥？"><a href="#JS-的-new-是个啥？" class="headerlink" title="JS 的 new 是个啥？"></a>JS 的 new 是个啥？</h1><p>本文写于 2019 年 11 月 25 日</p>
+<p><code>new</code>关键字在很多语言里面，总是用于把类实例化，可是 JS 之前就没有“类”这个概念呀。</p>
+<p>那 JS 的<code>new</code>有啥用？</p>
+<p>这就要从 JS 的面向对象开始谈起了。</p>
+<p>我学习 JS 基本上是从 ES6 开始的，所以一直没太管之前的面向对象。</p>
+<p>最近在看 2012 年出版的红宝书用来复习的时候，突然发现原来的面向对象，其实还是蛮恶心的。</p>
+<p>并且即使是 ES6 的面向对象，他也是基于原型链的，这个包装严格来说，<strong>只是语法糖</strong>而已。</p>
+<h2 id="OOP-是啥"><a href="#OOP-是啥" class="headerlink" title="OOP 是啥"></a>OOP 是啥</h2><p>首先简单介绍一下 OOP，面向对象。</p>
+<p>面向对象编程（Object Oriented Programming，缩写为 OOP）是目前主流的编程范式。它将真实世界各种复杂的关系，抽象为一个个对象，然后由对象之间的分工与合作，完成<strong>对真实世界的模拟</strong>。</p>
+<p>这个学过 Java 或者 C#之类的同学应该都懂。</p>
+<p>首先有两点：</p>
+<ul>
+<li><p>对象是单个实物的抽象<br>一本书、一辆汽车、一个人都可以是对象。当实物被抽象成对象，实物之间的关系就变成了对象之间的关系，从而就可以模拟现实情况，针对对象进行编程。</p>
+</li>
+<li><p>对象是一个容器，封装了属性（property）和方法（method）<br>属性是对象的状态，方法是对象的行为（完成某种任务）。比如，我们可以把动物抽象为 animal 对象，使用“属性”记录具体是那一种动物，使用“方法”表示动物的某种行为（奔跑、捕猎、休息等等）。</p>
+</li>
+</ul>
+<p>可以说，OOP 是目前为止，最符合人类思维方式的编程了。</p>
+<h2 id="没有-class-的-JS"><a href="#没有-class-的-JS" class="headerlink" title="没有 class 的 JS"></a>没有 class 的 JS</h2><p>曾经的 JS 根本没有 class 这个说法，那 JS 是怎么批量创建对象的吗？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = &#123;</span><br><span class="line">  name: <span class="string">&#x27;a&#x27;</span>,</span><br><span class="line">  age: <span class="number">18</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> b = &#123;</span><br><span class="line">  name: <span class="string">&#x27;b&#x27;</span>,</span><br><span class="line">  age: <span class="number">14</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> c = &#123;</span><br><span class="line">  name: <span class="string">&#x27;c&#x27;</span>,</span><br><span class="line">  age: <span class="number">20</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>难道会像这样一个一个的创建吗？</p>
+<p>那也太愚蠢了。并且一旦需要修改，就要修改<strong>每一项</strong>！</p>
+<p>那怎么改呢？</p>
+<p>可以利用原型——公共的一块内存。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createPerson</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> obj = <span class="built_in">Object</span>.create(createPerson.personPrototype);</span><br><span class="line">  obj.name = name;</span><br><span class="line">  <span class="keyword">return</span> obj;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">createPerson.personPrototype = &#123;</span><br><span class="line">  sayName() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`你好，我叫<span class="subst">$&#123;<span class="built_in">this</span>.name&#125;</span>。`</span>;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="keyword">constructor</span>: createPerson</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>这套操作就非常神奇了！</p>
+<p>一旦我们有一个数组：<code>[&#39;Jack&#39;, &#39;二狗&#39;, &#39;Rose&#39;, &#39;李铁蛋&#39;]</code>。</p>
+<p>该数组需要被创建成 Person 对象，就可以这么操作了：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="string">&#x27;Jack&#x27;</span>, <span class="string">&#x27;二狗&#x27;</span>, <span class="string">&#x27;Rose&#x27;</span>, <span class="string">&#x27;李铁蛋&#x27;</span>];</span><br><span class="line"><span class="keyword">const</span> person = [];</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> name <span class="keyword">of</span> arr) &#123;</span><br><span class="line">  <span class="keyword">const</span> p = createPerson(name);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`我的创造者是：<span class="subst">$&#123;p.constructor&#125;</span>`</span>);</span><br><span class="line">  person.push(p);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们在 personPrototype 中，记录了构造函数；在构造函数中，利用 personPrototype 构造了新的对象。</p>
+<p>所以我们可以随时通过构造函数构造新对象；也可以随时查看对象的构造函数！</p>
+<p>非常 amazing 呀！</p>
+<p>既然这个方法这么好，所以，JS 的<code>prototype</code>就是如此运作的！</p>
+<p>接下来看一下，具体的细节。</p>
+<h2 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h2><p>面向对象编程的第一步，就是要生成对象。（要是还找不到对象，就 new 一个好了。）</p>
+<p>前面说过，对象是单个实物的抽象。<strong>通常需要一个模板</strong>，表示某一类实物的共同特征，然后对象根据这个模板生成。</p>
+<p>典型的面向对象编程语言（比如 C++ 和 Java），都有“类”（class）这个概念。</p>
+<p>所谓“类”就是对象的模板，对象就是“类”的实例。</p>
+<p>但是，JavaScript 语言的对象体系，不是基于“类”的，<strong>而是基于构造函数（constructor）和原型链（prototype）</strong>。</p>
+<p>JavaScript 语言使用构造函数（constructor）作为对象的模板。</p>
+<p>所谓”构造函数”，就是专门用来生成实例对象的函数。</p>
+<p>它就是对象的模板，描述实例对象的基本结构。一个构造函数，可以生成多个实例对象，这些实例对象都有相同的结构。</p>
+<p>构造函数就是一个普通的函数，但是有自己的特征和用法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> Vehicle = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.price = <span class="number">1000</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，Vehicle 就是构造函数。为了与普通函数区别，构造函数名字的<strong>第一个字母通常大写</strong>。</p>
+<p>构造函数的特点有两个。</p>
+<ul>
+<li>函数体内部使用了 this 关键字，代表了所要生成的对象实例。</li>
+<li>生成对象的时候，必须使用 new 命令。</li>
+</ul>
+<h2 id="new-一个对象"><a href="#new-一个对象" class="headerlink" title="new 一个对象"></a>new 一个对象</h2><p>new 命令的作用，就是执行构造函数，返回一个实例对象。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> Vehicle = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.price = <span class="number">1000</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> v = <span class="keyword">new</span> Vehicle();</span><br><span class="line">v.price; <span class="comment">// 1000</span></span><br></pre></td></tr></table></figure>
+
+<p>上面代码通过 new 命令，让构造函数 Vehicle 生成一个实例对象，保存在变量 v 中。</p>
+<p>这个新生成的实例对象，从构造函数 Vehicle 得到了 price 属性。</p>
+<p>new 命令执行时，构造函数内部的 this，就代表了新生成的实例对象，this.price 表示实例对象有一个 price 属性，值是 1000。</p>
+<p>使用 new 命令时，根据需要，构造函数也可以接受参数：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> Vehicle = <span class="function"><span class="keyword">function</span> (<span class="params">p</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.price = p;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> v = <span class="keyword">new</span> Vehicle(<span class="number">500</span>);</span><br></pre></td></tr></table></figure>
+
+<p>new 命令本身就可以<strong>执行</strong>构造函数，所以后面的构造函数可以带括号，也可以不带括号。</p>
+<p>（这里我的编辑器会强行给我补上括号，如果发布的文章，俩都有括号，代表我<strong>不小心格式化了这篇文章</strong>）</p>
+<p>下面两行代码是等价的，但是为了表示这里是函数调用，推荐使用括号。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 推荐的写法</span></span><br><span class="line"><span class="keyword">let</span> v = <span class="keyword">new</span> Vehicle();</span><br><span class="line"><span class="comment">// 不推荐的写法</span></span><br><span class="line"><span class="keyword">let</span> v = <span class="keyword">new</span> Vehicle();</span><br></pre></td></tr></table></figure>
+
+<p><strong>那如果忘了使用 new 命令，直接调用构造函数会发生什么事？</strong></p>
+<p>这种情况下，构造函数就变成了普通函数，并不会生成实例对象。而且由于后面会说到的原因，<strong>this 这时代表全局对象</strong>，将造成一些意想不到的结果。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> Vehicle = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.price = <span class="number">1000</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> v = Vehicle();</span><br><span class="line">v; <span class="comment">// undefined</span></span><br><span class="line">price; <span class="comment">// 1000</span></span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，调用 <code>Vehicle</code> 构造函数时，忘了加上 <code>new</code> 命令。结果，变量 <code>v</code> 变成了 <code>undefined</code>，而 <strong>price 属性变成了全局变量</strong>。</p>
+<p>因此，应该非常小心，避免不使用 <code>new</code> 命令、直接调用构造函数。</p>
+<p>为了保证构造函数必须与 <code>new</code> 命令一起使用，一个解决办法是，构造函数内部使用严格模式，即第一行加上 <code>use strict</code>。</p>
+<p>这样的话，一旦忘了使用 <code>new</code> 命令，直接调用构造函数<strong>就会报错</strong>。</p>
+<p>（其实有了新的 ES6 语法，这就没有必要了）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Fubar</span>(<span class="params">foo, bar</span>) </span>&#123;</span><br><span class="line"><span class="meta">  &#x27;use strict&#x27;</span>;</span><br><span class="line">  <span class="built_in">this</span>._foo = foo; <span class="comment">// 这种写法，是用来伪装一个私有变量的，但其实现在可以用Symbol对象完成</span></span><br><span class="line">  <span class="built_in">this</span>._bar = bar;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Fubar();</span><br></pre></td></tr></table></figure>
+
+<p>上面代码的 Fubar 为构造函数，<code>use strict</code> 命令保证了该函数在严格模式下运行。</p>
+<p>由于严格模式中，函数内部的 <code>this</code> 不能指向全局对象，默认等于 <code>undefined</code>，导致不加 <code>new</code> 调用会报错。（JavaScript 不允许对 <code>undefined</code> 添加属性）</p>
+<p>另一个解决办法，构造函数内部判断是否使用 new 命令，如果发现没有使用，则直接返回一个实例对象。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Fubar</span>(<span class="params">foo, bar</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!(<span class="built_in">this</span> <span class="keyword">instanceof</span> Fubar)) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Fubar(foo, bar);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">this</span>._foo = foo;</span><br><span class="line">  <span class="built_in">this</span>._bar = bar;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Fubar(<span class="number">1</span>, <span class="number">2</span>)._foo(</span><br><span class="line">  <span class="comment">// 1</span></span><br><span class="line">  <span class="keyword">new</span> Fubar(<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line">)._foo; <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+
+<p>上面代码中的构造函数，不管加不加 <code>new</code> 命令，都会得到同样的结果。</p>
+<p><strong>ES5 的语法是不是很变态？</strong>我很庆幸在 ES6 之后学习的 JS（笑）。</p>
+<h2 id="new-命令的原理"><a href="#new-命令的原理" class="headerlink" title="new 命令的原理"></a>new 命令的原理</h2><p>使用 <code>new</code> 命令时，它后面的函数依次执行下面的步骤：</p>
+<ol>
+<li>创建一个空对象，作为将要返回的对象实例；</li>
+<li>将这个空对象的原型，指向构造函数的 <code>prototype</code> 属性；</li>
+<li>将这个空对象赋值给函数内部的 <code>this</code> 关键字；</li>
+<li>开始执行构造函数内部的代码。</li>
+</ol>
+<p>也就是说，构造函数内部，<code>this</code> 指的是一个新生成的空对象，所有针对 <code>this</code> 的操作，都会发生在这个空对象上。</p>
+<p>构造函数之所以叫“构造函数”，就是说这个函数的目的，就是操作一个空对象（即 <code>this</code> 对象），将其“构造”为需要的样子。</p>
+<p>如果构造函数内部有 <code>return</code> 语句，而且 <code>return</code> 后面跟着一个对象，new 命令会返回 <code>return</code> 语句指定的对象；否则，就会不管 <code>return</code> 语句，返回 <code>this</code> 对象。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> Vehicle = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.price = <span class="number">1000</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">1000</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vehicle() === <span class="number">1000</span>; <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，构造函数 <code>Vehicle</code> 的 <code>return</code> 语句返回一个数值。</p>
+<p>这时，<code>new</code> 命令就会忽略这个 <code>return</code> 语句，返回“构造”后的 this 对象。</p>
+<p>但是，如果 return 语句返回的是一个跟 <code>this</code> 无关的新对象，<code>new</code> 命令会返回这个新对象，而不是 <code>this</code> 对象。<strong>这一点非常非常的诡异！</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> Vehicle = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.price = <span class="number">1000</span>;</span><br><span class="line">  <span class="keyword">return</span> &#123; <span class="attr">price</span>: <span class="number">2000</span> &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vehicle().price;</span><br><span class="line"><span class="comment">// 2000</span></span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，构造函数 <code>Vehicle</code> 的 <code>return</code> 语句，返回的是一个新对象。<strong>new 命令会返回这个对象，而不是 this 对象。</strong></p>
+<p>另一方面，<strong>如果对普通函数（内部没有 this 关键字的函数）使用 new 命令，则会返回一个空对象。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getMessage</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">&#x27;this is a message&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> msg = <span class="keyword">new</span> getMessage();</span><br><span class="line"></span><br><span class="line">msg; <span class="comment">// &#123;&#125;</span></span><br><span class="line"><span class="keyword">typeof</span> msg; <span class="comment">// &quot;object&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，<code>getMessage</code> 是一个普通函数，返回一个字符串。对它使用 <code>new</code> 命令，会得到一个空对象。</p>
+<p>这是因为 <code>new</code> 命令总是返回一个对象，要么是实例对象，要么是 <code>return</code> 语句指定的对象。</p>
+<p><code>但是在例子中，return</code> 语句返回的是字符串，所以 <code>new</code> 命令就忽略了该语句。</p>
+<p><strong><code>new</code> 命令简化的内部流程，可以用下面的代码表示。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_new</span>(<span class="params">constructor, params</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> args = [].slice.call(<span class="built_in">arguments</span>);</span><br><span class="line">  <span class="keyword">let</span> <span class="keyword">constructor</span> = args.shift();</span><br><span class="line">  let context = Object.create(<span class="keyword">constructor</span>.prototype);</span><br><span class="line">  let result = <span class="keyword">constructor</span>.apply(context, args);</span><br><span class="line">  return typeof result === &#x27;object&#x27; &amp;&amp; result != null ? result : context;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 实例</span><br><span class="line">let actor = _new(Person, &#x27;张三&#x27;, 28);</span><br></pre></td></tr></table></figure>
+
+<p>结论，ES6 真好！可是这些我们一定要了解，因为 ES6 只是语法糖，这个才是本质。</p>
+<p>最后，写一个简单例子：</p>
+<p>使用 ES6 的 class 方法来做一个手机类：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Phone</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(brand, price) &#123;</span><br><span class="line">    <span class="built_in">this</span>.brand = brand;</span><br><span class="line">    <span class="built_in">this</span>.price = price;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  call() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`我使用了<span class="subst">$&#123;<span class="built_in">this</span>.brand&#125;</span>手机打电话！`</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> a = <span class="keyword">new</span> Person(<span class="string">&#x27;苹果&#x27;</span>, <span class="string">&#x27;100&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>使用原型方法来实现：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">phone</span>(<span class="params">brand, price</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.brand = brand;</span><br><span class="line">  <span class="built_in">this</span>.price = price;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">phone.prototype.call = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">`我使用了<span class="subst">$&#123;<span class="built_in">this</span>.brand&#125;</span>手机打电话！`</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> a = <span class="keyword">new</span> phone(<span class="string">&#x27;华为&#x27;</span>, <span class="string">&#x27;200&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>（完）</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

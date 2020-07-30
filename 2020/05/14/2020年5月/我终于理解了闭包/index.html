@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="徐航宇的个人博客">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        我终于理解了闭包 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Love Code / Love Design </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/head.png" />
+        </div>
+        <div class="name">
+            <i>徐航宇</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%88%91%E7%BB%88%E4%BA%8E%E7%90%86%E8%A7%A3%E4%BA%86%E9%97%AD%E5%8C%85"><span class="toc-text">我终于理解了闭包</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-text">函数的作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%91%E4%BB%AC%E7%BB%8F%E5%B8%B8%E9%83%BD%E5%9C%A8%E4%BD%BF%E7%94%A8%E9%97%AD%E5%8C%85"><span class="toc-text">我们经常都在使用闭包</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Love Code / Love Design </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        我终于理解了闭包
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-05-14 23:33:16</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#JavaScript" title="JavaScript">JavaScript</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <h1 id="我终于理解了闭包"><a href="#我终于理解了闭包" class="headerlink" title="我终于理解了闭包"></a>我终于理解了闭包</h1><p>本文写于 2020 年 5 月 14 日</p>
+<p>闭包这个词一听就很高级，令人害怕。</p>
+<p>但实际上闭包非常的强大，JS 的精髓之一就是闭包。</p>
+<p>更重要的是我们经常在使用闭包，而不自知！闭包并没有传闻中的那么困难。（其实所有的知识都是这样，难者不会，会者不难）</p>
+<p>Kyle Simpson 在书中将掌握闭包，比喻为：</p>
+<blockquote>
+<p>不像 Luke 一样接受训练才能掌握原力，而是像 Neo 见到矩阵一样。</p>
+</blockquote>
+<p>我们其实一直都在不自觉地使用着闭包，一旦理解了闭包，就会如同重生一般，凤凰涅槃。</p>
+<p>首先，一言以蔽之：<strong>一个持有外部环境变量的函数就是闭包。</strong></p>
+<h2 id="函数的作用域"><a href="#函数的作用域" class="headerlink" title="函数的作用域"></a>函数的作用域</h2><p>说到外部环境变量，那么就必然要谈到<strong>作用域</strong>。</p>
+<p>我们来看一段程序：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> hello = <span class="string">&#x27;hello world&#x27;</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(hello);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个非常简单的函数，如果调用 <code>foo()</code> ，那么在短暂的时间过后，hello 变量就会消失的无影无踪，仿佛从来没有出现过一样。</p>
+<p>这就说明，在 <code>foo()</code> 执行结束之后，内部的作用域销毁了，或者说我们找不到内部作用域了。</p>
+<p>但是如果这么写：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> hello = <span class="string">&#x27;hello world&#x27;</span>;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(hello);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> bar;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> hey = foo();</span><br></pre></td></tr></table></figure>
+
+<p>观察一下，虽然在<code>let hey = foo()</code>的时候，<code>foo</code> 已经执行过了，但是如果我们使用<code>hey()</code>，依然可以使用 hello 变量！</p>
+<p><strong>这就是闭包。</strong></p>
+<p><code>foo()</code>在执行之后，正常情况下，整个内部的作用域都会被销毁，因为 JS 引擎会帮助我们自动回收垃圾。</p>
+<p>而闭包神奇的可以阻止这件事情的发生，让内部作用域依然存在，不被回收，并且在这个例子中，可以让 <code>bar()</code> 来访问 <code>foo</code> 的内部作用域。</p>
+<p><code>bar()</code> 在 <code>foo()</code> 执行结束后，依然<strong>保持了对该作用域的引用</strong>，这就叫做闭包！</p>
+<h2 id="我们经常都在使用闭包"><a href="#我们经常都在使用闭包" class="headerlink" title="我们经常都在使用闭包"></a>我们经常都在使用闭包</h2><p>上面的代码是不是十分眼熟？感觉似曾相识但从来没有主动的去写过。</p>
+<p>那我们接下来看个例子，他也是闭包：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> hello = <span class="string">&#x27;hello world&#x27;</span>;</span><br><span class="line">  <span class="built_in">setInterval</span>(<span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(hello);</span><br><span class="line">  &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个 <code>setInterval</code> 定时器，是不是闭包？</p>
+<p><strong>定时器、事件监听器、Ajax 请求、跨窗口通信……只要用到了回调函数，都是闭包！</strong></p>
+<p>原来的时候闭包还有一个用处，就是关于 for 循环的 i 泄漏问题。这是以前 ES5 的时候，大家一直有个困惑：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">  <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">  &#125;, <span class="number">1000</span> * i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>为什么这个代码每个一秒会输出一次 5？</p>
+<p>就算输出也应该是 4 啊，为什么呢？</p>
+<p>因为 var 的 i，作用域其实<strong>在外面</strong>。</p>
+<p>那也就是说，其实<strong>只有一个 i</strong>，并且在最后一次结束的时候，<strong>i 已经是 5 了</strong>。</p>
+<p>而异步操作，都是在 <strong><code>for</code> 循环结束之后才执行的</strong>。</p>
+<p>也就是说，每次循环结束，都会记住<code>setTimeout(() =&gt; &#123; console.log(i) &#125;, n000)</code>，然后在 <code>for</code> 结束之后，统一的把 i 传入 <code>console</code>。</p>
+<p>那自然而然的，会都输出 5 了。</p>
+<p>那这个怎么让他每一次循环都能够实现，<code>console</code> 对当前 i 的引用呢？这也是闭包呀。</p>
+<p>把 <code>setTimeout</code> 单独放到一个作用域里，然后再循环的时候把当前的 i 传进去就可以了！非常简单！</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">  (<span class="function"><span class="keyword">function</span> (<span class="params">j</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(j);</span><br><span class="line">    &#125;, <span class="number">1000</span> * j);</span><br><span class="line">  &#125;)(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>成功了！</p>
+<p>但实际上，如果使用 let，完全不会有这种需要“泄露”的情况。</p>
+<p>此文简单分析了一下闭包，并没有深入讨论，只是经常看到有很多人将闭包说的很难——<strong>其实闭包我们一直在用，而不自知</strong>。</p>
+<p>（完）</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

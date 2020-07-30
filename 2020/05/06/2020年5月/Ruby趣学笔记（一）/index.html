@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="徐航宇的个人博客">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        Ruby 趣学笔记（一） - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Love Code / Love Design </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/head.png" />
+        </div>
+        <div class="name">
+            <i>徐航宇</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Ruby-%E8%B6%A3%E5%AD%A6%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89"><span class="toc-text">Ruby 趣学笔记（一）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0"><span class="toc-text">函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#class"><span class="toc-text">class</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#class-%E4%B8%8B%E9%9D%A2%E6%9C%89%E5%95%A5%E6%96%B9%E6%B3%95%EF%BC%9F"><span class="toc-text">class 下面有啥方法？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E8%BF%99%E4%B8%AA%E6%96%B9%E6%B3%95%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8%E5%91%A2%EF%BC%9F"><span class="toc-text">如何判断这个方法是否存在呢？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B"><span class="toc-text">变量类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Array"><span class="toc-text">Array</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E9%81%8D%E5%8E%86"><span class="toc-text">数组的遍历</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E7%9A%84%E8%BF%9E%E6%8E%A5"><span class="toc-text">数组的连接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%8E%E4%B9%88%E5%88%A4%E6%96%AD%E8%AF%A5%E5%8F%98%E9%87%8F%E6%98%AF%E5%90%A6%E6%98%AF%E6%95%B0%E7%BB%84"><span class="toc-text">怎么判断该变量是否是数组</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C"><span class="toc-text">字符串操作</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Love Code / Love Design </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Ruby 趣学笔记（一）
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-05-06 23:18:55</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#Ruby" title="Ruby">Ruby</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <h1 id="Ruby-趣学笔记（一）"><a href="#Ruby-趣学笔记（一）" class="headerlink" title="Ruby 趣学笔记（一）"></a>Ruby 趣学笔记（一）</h1><p>本文写于 2020 年 5 月 6 日</p>
+<p>最近在 mac 上探索到了 homebrew 的使用方法，对 ruby 的兴趣直线上升，所以来学一学。</p>
+<p>最近几年确实大家一直在唱衰 Ruby，整个社区的生态确实也不如 python 那么庞大，但是这都不妨碍 ruby 被称作“快乐编程”。</p>
+<p>这几年越来越强调语言的性能，但是 Ruby 的作者松本行弘却认为，<strong>人才是最重要的！</strong></p>
+<p>自看到第一眼后，我就深以为同！</p>
+<p>这其实就是一个价值观的问题，人更值钱，那么就应该尽量节省人力；机器算力更值钱，那么就应该用人力去优化程序，来节省机器的算力。</p>
+<p>但是国内的大环境大家也懂，人多爆了。</p>
+<p>那么自然而然，从上面的结论来看，Ruby 在国内就不会流行——</p>
+<p>Ruby 作为多范式编程语言，真的很难协作；作为解释型语言，运行速度也是超级慢……</p>
+<p>可很多人对于 Ruby 的评价仍然是：程序员的一把尖刀！</p>
+<p>并且在 web 开发领域，很多大公司坚持在使用 Ruby，这足以说明 Ruby 的强大了！</p>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sayHelo</span></span></span><br><span class="line">    puts <span class="string">&quot;Helo World.&quot;</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">sayHelo</span><br></pre></td></tr></table></figure>
+
+<p>就这么简单，看起来还蛮像 python 的。但是我们继续深入，就会发现，ruby 的语言真的<strong>令人舒适</strong>。</p>
+<p><strong>传参的函数</strong></p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sayHello</span><span class="params">(name)</span></span></span><br><span class="line">  puts <span class="string">&quot;Hello, <span class="subst">#&#123;name&#125;</span>.&quot;</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<p>我们还可以提供一个默认值，就像这样：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sayHello</span><span class="params">(name = <span class="string">&#x27;world&#x27;</span>)</span></span></span><br><span class="line">  puts <span class="string">&quot;Hello, <span class="subst">#&#123;name&#125;</span>.&quot;</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<p>这样，如果我们不传入参数，那么就会自动将 world 赋给 name 变量。</p>
+<h2 id="class"><a href="#class" class="headerlink" title="class"></a>class</h2><p>Ruby 是一个纯 OOP 语言，那么自然开头就要讲 class 啦！</p>
+<p>让我们来定义一个手机类：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Phone</span></span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">initialize</span><span class="params">(brand = <span class="string">&#x27;苹果&#x27;</span>, name = <span class="string">&#x27;刘好&#x27;</span>, number = <span class="number">15_527_782_945</span>)</span></span></span><br><span class="line">    @brand = brand</span><br><span class="line">    @name = name</span><br><span class="line">    @number = number</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">call</span></span></span><br><span class="line">    puts <span class="string">&quot;<span class="subst">#&#123;@name&#125;</span>使用<span class="subst">#&#123;@brand&#125;</span>手机，拨打了<span class="subst">#&#123;@number&#125;</span>的号码。&quot;</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">iphone = Phone.new</span><br><span class="line"></span><br><span class="line">iphone2 = Phone.new(<span class="string">&#x27;三星&#x27;</span>, <span class="string">&#x27;王自如&#x27;</span>, <span class="number">1123321</span>)</span><br></pre></td></tr></table></figure>
+
+<p>大家从这里就能看到，Ruby 的语言是多么的像英语。</p>
+<p>在这个类中我们可以看到有个<code>@variable</code>，这个有什么用呢？其实就是一种变量。</p>
+<ul>
+<li>局部变量：局部变量是在方法中定义的变量，在方法外是不可用的，并且习惯以以小写字母或<code>_</code>开始（只是习惯）；</li>
+<li>实例变量：实例变量可以跨任何特定的实例或对象中的方法使用，这意味着，实例变量可以从对象到对象的改变，要想定义它，需要之前放置符号<code>@</code>（这是语法，不是习惯！）；</li>
+<li>类变量：类变量可以跨不同的对象使用，它属于类，且是类的一个属性，要想定义它，需要在变量名之前放置符号<code>@@</code>；</li>
+<li>全局变量：类变量不能跨类使用。如果想要有一个可以跨类使用的变量，您需要定义全局变量，它是以美元符号<code>$</code>开始的。</li>
+</ul>
+<p>那么如何改变实例变量呢？</p>
+<p>使用<code>attr_accessor</code>: 定义可存取对象的属性。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Game</span></span></span><br><span class="line">    <span class="keyword">attr_accessor</span> <span class="symbol">:price</span> <span class="comment">#, :name</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">initialize</span><span class="params">(name = <span class="string">&quot;怪物猎人世界&quot;</span>, price = <span class="number">200</span>)</span></span></span><br><span class="line">        @name = name</span><br><span class="line">        @price = price</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<p>此时 price 变量就是可以改变的，name 就不可以改变。</p>
+<p>可以利用<code>respond_to?</code>来判断一下（_这个方法一会儿会说_）：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mygame.respond_to?(<span class="string">&quot;name&quot;</span>) <span class="comment"># false</span></span><br><span class="line">mygame.respond_to?(<span class="string">&quot;price&quot;</span>) <span class="comment"># true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="class-下面有啥方法？"><a href="#class-下面有啥方法？" class="headerlink" title="class 下面有啥方法？"></a>class 下面有啥方法？</h3><p><code>Phone.instance_methods(false)</code></p>
+<p>这个方法，可以让我们知道该类下，有什么方法是我们自定义的。</p>
+<p>对于上面写的<code>Phone</code>类，输出结果就会是：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">call</span><br></pre></td></tr></table></figure>
+
+<p>就这么简单。</p>
+<p>如果中间写的是<code>true</code>呢，则会显示所有的方法，比如一些自带的方法。</p>
+<h3 id="如何判断这个方法是否存在呢？"><a href="#如何判断这个方法是否存在呢？" class="headerlink" title="如何判断这个方法是否存在呢？"></a>如何判断这个方法是否存在呢？</h3><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iphone = Phone.new</span><br><span class="line">iphone.respond_to?(<span class="string">&quot;call&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><code>respond_to?</code>这个方法可以判断该对象是否拥有某个方法，可以返回一个布尔值。</p>
+<p>所以我们通常可以这么用：<code>iphone.respond_to?(&quot;call&quot;) &amp;&amp; iphone.call</code></p>
+<h2 id="变量类型"><a href="#变量类型" class="headerlink" title="变量类型"></a>变量类型</h2><p>什么？？？变量类型？</p>
+<p>Ruby 不存在所谓的“基本类型”，比如<code>int</code>/<code>float</code>/<code>char</code>/…</p>
+<p>一切皆对象的原则被严格恪守！</p>
+<p>什么意思呢？</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">puts <span class="number">1</span>.to_s</span><br></pre></td></tr></table></figure>
+
+<p><code>to_s</code>天生的就是 1 的方法！</p>
+<p>对于数据类型来说，Ruby 拥有：Number、String、Ranges、Symbols，以及 true、false 和 nil 这几个特殊值，同时还有两种重要的数据结构——Array 和 Hash。</p>
+<h3 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h3><p>别的类型其实没太多好说的，都大同小异。</p>
+<p>我们从 Array 类型的方法，来体验一下 Ruby 的灵活性！</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">games = [<span class="string">&#x27;魔兽世界&#x27;</span>, <span class="string">&#x27;塞尔达传说&#x27;</span>, <span class="string">&#x27;金庸群侠传&#x27;</span>]</span><br><span class="line">puts games</span><br></pre></td></tr></table></figure>
+
+<p>这个 games 的定义，如果你在 RubyMine 或者其他强大的 IDE 中编写，他就会告诉你，有更好的方式：<code>games = %w[魔兽世界 塞尔达传说 金庸群侠传]</code></p>
+<p><strong>这就是为什么 Ruby 不易协作</strong>，一千个程序员有一千种写法与实现方法！</p>
+<h4 id="数组的遍历"><a href="#数组的遍历" class="headerlink" title="数组的遍历"></a>数组的遍历</h4><p>这是永远的重点，正常编程中最为常用的方法。</p>
+<p>Ruby 可以通过<code>each</code>来遍历数组，具体语法如下：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">games.each <span class="keyword">do</span> <span class="params">|game|</span></span><br><span class="line">  puts <span class="string">&quot;我喜欢<span class="subst">#&#123;game&#125;</span>&quot;</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<p>这个地方稍微提一句，我曾在某个地方看到过，写单引号的程序最后会比写双引号的小（文件大小）。</p>
+<p>但是这里这种模板字符串的写法，必须要双引号。</p>
+<p><strong>带上数组下标的遍历</strong></p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">games.each_with_index <span class="keyword">do</span> <span class="params">|game, i|</span></span><br><span class="line">  puts <span class="string">&quot;第<span class="subst">#&#123;i&#125;</span>个游戏是<span class="subst">#&#123;game&#125;</span>&quot;</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="数组的连接"><a href="#数组的连接" class="headerlink" title="数组的连接"></a>数组的连接</h4><p><code>games.join(&#39;,&#39;)</code>，这个方法其实很多语言都有，可以返回一个由逗号连接的、由数组每个元素顺序组成的字符串。</p>
+<h4 id="怎么判断该变量是否是数组"><a href="#怎么判断该变量是否是数组" class="headerlink" title="怎么判断该变量是否是数组"></a>怎么判断该变量是否是数组</h4><p>这个怎么判断呢？？？</p>
+<p>很简单，还是运用<code>respond_to?</code>。</p>
+<p>怎么用？</p>
+<p>刚刚的<code>each</code>方法就可以！</p>
+<p><code>games.respond_to?(&#39;each&#39;) &amp;&amp; puts &#39;这是一个数组！&#39;</code></p>
+<h2 id="字符串操作"><a href="#字符串操作" class="headerlink" title="字符串操作"></a>字符串操作</h2><p>刚刚的一些示例代码，应该可以看出来一些套路。</p>
+<p>接下来总结一下：</p>
+<ul>
+<li><code>+</code>：字符连接</li>
+<li><code>&lt;&lt;</code>：字符带入</li>
+<li><code>*</code>：字符循环</li>
+</ul>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="string">&quot;helo&quot;</span>;</span><br><span class="line">b = <span class="string">&quot;world&quot;</span>;</span><br><span class="line">puts a + <span class="string">&quot; &quot;</span> + b;</span><br><span class="line"></span><br><span class="line"><span class="comment"># &lt;&lt;：字符带入</span></span><br><span class="line">a &lt;&lt; b</span><br><span class="line">puts a</span><br><span class="line">puts b</span><br><span class="line"></span><br><span class="line"><span class="comment"># 这个其实相当于 a = a + b</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># *：字符循环</span></span><br><span class="line">a=<span class="string">&quot;A&quot;</span></span><br><span class="line">puts a*<span class="number">4</span></span><br></pre></td></tr></table></figure>
+
+<p>（未完待续）</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

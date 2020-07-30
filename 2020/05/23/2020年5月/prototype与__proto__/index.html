@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="徐航宇的个人博客">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        prototype 与 __proto__ - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Love Code / Love Design </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/head.png" />
+        </div>
+        <div class="name">
+            <i>徐航宇</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#prototype-%E4%B8%8E-proto"><span class="toc-text">prototype 与__proto__</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Love Code / Love Design </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        prototype 与 __proto__
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-05-23 10:18:01</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#JavaScript" title="JavaScript">JavaScript</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <h1 id="prototype-与-proto"><a href="#prototype-与-proto" class="headerlink" title="prototype 与__proto__"></a><code>prototype</code> 与<code>__proto__</code></h1><p>本文写于 2020 年 5 月 23 日</p>
+<p>首先看一个问题：<code>let obj = &#123; name: &#39;孙悟空&#39; &#125;</code>的原型是谁？</p>
+<p>是<code>obj.__proto__</code>。</p>
+<p><code>let arr = [1, 2, 3]</code>的原型是谁？</p>
+<p>是<code>arr.__proto__</code>。</p>
+<p><code>Object</code>的原型谁是？</p>
+<p>是<code>Object.__proto__</code>。</p>
+<p><strong>他们都不是<code>prototype</code>，只是正好<code>__proto__</code>等价于某个函数的<code>prototype</code>。</strong></p>
+<ol>
+<li>对象的<code>__proto__</code>属性，就是其构造函数的<code>prototype</code>；</li>
+<li>任何函数的<code>__proto__</code>都是<code>Function</code>的<code>prototype</code>——包括<code>Object()</code>函数、<code>Array()</code>函数、<code>Function()</code>函数等等；</li>
+<li><code>Object.prototype</code>是所有对象的直接或者间接原型。</li>
+</ol>
+<p>这里有个问题，如果说，<code>Function()</code>函数是造世的函数，那为什么说<code>Object.prototype</code>是所有对象的直接或者间接原型呢？</p>
+<p>其实很简单，因为<code>Function()</code>只是构造出了<code>Object.prototype</code>（指针），但是并没有构造出——<code>Object.prototype</code>所指向的真正对象。</p>
+<hr>
+<p><strong>让我们从头开始一下：</strong></p>
+<p>当我们的 JS 代码<strong>还没运行</strong>的时候，JS 环境里已经有了一个 <code>window</code> 对象。</p>
+<ol>
+<li><code>window</code> 对象有一个 <code>Object</code> 属性，<code>window.Object</code> 是一个函数；</li>
+<li><code>window.Object</code> 这个函数有一个重要属性是 <code>prototype</code>；</li>
+<li><code>window.Object.prototype</code> 里面有这么几个属性 <code>toString</code>（函数）、<code>valueOf</code>（函数）。</li>
+</ol>
+<p>然后我们写一点代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line">obj.toString();</span><br></pre></td></tr></table></figure>
+
+<p>这句代码做了啥？</p>
+<p>为什么 <code>obj</code> 有 <code>toString()</code> 属性？我们分明没有给她一个<code>toString()</code>方法呀！</p>
+<p><strong>在 JS 中，这句话大概是让 <code>obj</code> 变量指向一个空对象，这个空对象有个 <code>__proto__</code> 属性指向 <code>window.Object.prototype</code>。</strong></p>
+<p>这样你在调用 <code>obj.toString()</code> 的时候，<code>obj</code> 本身没有 <code>toString</code>，就会去 <code>obj.__proto__</code> 上面去找 <code>toString</code>！</p>
+<p>所以调用 <code>obj.toString</code> 的时候，**实际上调用的是 <code>window.Object.prototype.toString</code>**。</p>
+<p><strong>那么问题又来了：</strong></p>
+<p><code>window.Object.prototype.toString</code> 是怎么获取 <code>obj</code> 的内容的呢？</p>
+<p><strong>因为 <code>obj.toString()</code> 等价于 <code>obj.toString.call(obj)</code>！</strong>JS 又偷偷的帮我们做事了！</p>
+<p>同时 <code>obj.toString.call(obj)</code> 等价于 <code>window.Object.prototype.toString.call(obj)</code>。</p>
+<p>正是这样，JS 就悄咪咪的完成了 <code>obj.toString()</code>。</p>
+<p><strong>再来看一下数组：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [];</span><br><span class="line">arr.push(<span class="number">1</span>); <span class="comment">// [1]</span></span><br></pre></td></tr></table></figure>
+
+<p>其实和对象是一样的，并且 JS 的数组本来就<strong>是对象伪装的</strong>！</p>
+<p><code>var arr = []</code> 会让 <code>arr</code> 指向一个空对象，然后 <code>arr.__proto__</code> 指向 <code>window.Array.prototype</code>。</p>
+<p>（其实 <code>arr</code> 还有一个 <code>length: 0</code>属性）</p>
+<p>所以我们在调用 <code>arr.push</code> 的时候，<code>arr</code> 发现自身没有 <code>push</code> 属性，就前往 <code>arr.__proto__</code> 上找 <code>push</code>。</p>
+<p>因此 <code>arr.push</code> 实际上是 <code>window.Array.prototype.push</code>。</p>
+<p>并且：</p>
+<ul>
+<li><code>arr.push(1)</code> 等价与 <code>arr.push.call(arr,1)</code></li>
+<li><code>arr.push.call(arr,1)</code> 等价于 <code>window.Array.prototype.push.call(arr, 1)</code></li>
+</ul>
+<p>看，JavaScript 的原型模式其实很优美很简单！</p>
+<hr>
+<p><strong>反证一下：</strong></p>
+<p>假设我们把 <code>__proto__</code> 去掉，那么</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line">obj.toString(); <span class="comment">// 报错，没有 toString 方法</span></span><br></pre></td></tr></table></figure>
+
+<p>所以只能这样声明一个对象：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  toString: <span class="built_in">window</span>.Object.prototype.toString,</span><br><span class="line">  valueOf: <span class="built_in">window</span>.Object.prototype.valueOf</span><br><span class="line">&#125;;</span><br><span class="line">obj.toString(); <span class="comment">// &#x27;[object Object]&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>现在知道 <code>__proto__</code> 帮你省多少代码了吧？</p>
+<p>假设我们删掉 <code>prototype</code>，包括 <code>window.Object.prototype</code> 和 <code>window.Array.prototype</code>。</p>
+<p>那么 <code>window.Object.prototype.toString</code> 也一并被删除了。</p>
+<p>然后我们基本就没法写代码了……全都得自己重新来做！</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line">obj.toString(); <span class="comment">// toString 不存在，因为 toString 没有定义过啊</span></span><br></pre></td></tr></table></figure>
+
+<p><code>prototype</code> 的意义就是把共有属性预先定义好，给之后的对象用。</p>
+<p><strong>总结：</strong></p>
+<ol>
+<li><code>prototype</code> 指向一块内存，这个内存里面有共用属性，而 <code>__proto__</code> 指向同一块内存；</li>
+<li><code>prototype</code> 和 <code>__proto__</code> 的不同点在于：<code>prototype</code> 是<strong>构造函数</strong>的属性，而 <code>__proto__</code> 是对象的属性；</li>
+<li><strong>如果没有 <code>prototype</code>，那么共用属性就没有立足之地；</strong></li>
+<li><strong>如果没有 <code>__proto__</code>，那么一个对象就不知道自己的共用属性有哪些。</strong></li>
+</ol>
+<p>（完）</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

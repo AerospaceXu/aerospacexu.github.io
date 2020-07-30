@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="徐航宇的个人博客">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        npm 是什么？ - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Love Code / Love Design </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/head.png" />
+        </div>
+        <div class="name">
+            <i>徐航宇</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#npm-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">npm 是什么？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A4%BE%E5%8C%BA"><span class="toc-text">社区</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Love Code / Love Design </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        npm 是什么？
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-06-16 23:00:50</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#JavaScript" title="JavaScript">JavaScript</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <h1 id="npm-是什么？"><a href="#npm-是什么？" class="headerlink" title="npm 是什么？"></a>npm 是什么？</h1><p>本文写于 2020 年 6 月 16 日</p>
+<p>最近帮几个同学装开发环境，发现他们会各种“卡死”在 npm 安装一些包的过程中。</p>
+<p>他们会非常纠结这个命令我明明敲的和网上差不多，为什么错了呢？</p>
+<p>其中一个锅，我觉得改甩给 CSDN，实在是有很多错误的解决方案被放在了网站上；另一个就是其实很多人都不会告诉新人 npm 到底是什么，只是单纯的甩给他们几条命令，任其自生自灭。</p>
+<p>要谈 npm，那必然要先说说什么是程序员的社区。</p>
+<h2 id="社区"><a href="#社区" class="headerlink" title="社区"></a>社区</h2><p>“自古以来”程序员就有着社区文化。社区即为一些拥有共同职业或者相同兴趣的人们自发的组织在一起，分享信息与资源，进行合作。</p>
+<p>那程序员的社区干些什么呢？</p>
+<ol>
+<li>分享源代码；</li>
+<li>讨论代码问题；</li>
+<li>分享学习资源和各种好玩的网站之类。</li>
+</ol>
+<p>比如最大的程序员社区就是 GitHub。加入 GitHub 之后，你就可以使用社区中的别人的开源代码和项目了（注意开源协议），同时你也可以贡献你的代码，让全世界都能看见。</p>
+<p>但是 GitHub 才几年，之前的程序员是怎么共享代码的呢？</p>
+<p>稍微早一点，那真的很难去让所有人加入社区，可是稍微往后一点，大家都会通过<strong>网址去共享代码</strong>。</p>
+<p>比如你想使用 jQuery，就可以使用 <code>&lt;script src=&quot;xxxxx&quot;&gt;</code> 来在自己的网站上引入 jQuery。有了 GitHub 之后，还可以通过 <code>clone xxxx</code> 将代码从 GitHub 下载到本地。</p>
+<p>但是其实还是蛮麻烦的，因为下载下来不仅要去很多的网站进行下载，而且如果有个网站挂了呢？那整个网页都会收到影响呀。</p>
+<p>于是 Isaac Z. Schlueter 就给出了一个解决方案：<strong>用一个工具集中这些代码</strong>。之后便创建了 npm。</p>
+<p>所谓 npm，全称就是 Node Package Manager，<strong>node 包管理器</strong>。</p>
+<p>npm 的实现思路可以这么理解：</p>
+<ol>
+<li>买个服务器做仓库；</li>
+<li>让 jQuery、Bootstrap……等将代码提交到服务器上；</li>
+<li>如果有人想用这些库，只需要把要用的库 <code>npm install jQuery</code> 到本地；</li>
+<li>库的代码就会被下载到 node_modules 目录中。</li>
+</ol>
+<p>这样子被使用的代码，就叫做“包”，你可以用他下载、删除很多包，所以叫做“包管理器”。</p>
+<p>最后解释一下这几个命令：</p>
+<p><strong><code>npm install xxx</code></strong></p>
+<p>先安装 xxx，但是这样安装，只是下载了，并没有“登记”到你的项目，必须连同版本号手动将他们添加到模块配置文件 package.json 中的依赖里。</p>
+<p><strong><code>npm install xxx -save</code></strong></p>
+<p>优化上一个操作，它会自动帮你添加到 package.json 的<strong>依赖</strong>——比如 vue、react。</p>
+<p><strong><code>npm install xxx -save-dev</code></strong></p>
+<p>跟上一个几乎一样，区别是，这个是将包添加到<strong>开发依赖</strong>——比如 prettier（格式化代码）、babel（编译代码）。</p>
+<p><strong><code>npm install -g xxxx</code></strong></p>
+<p>将 xxxx 包，全局安装到你的电脑上。</p>
+<p>（完）</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

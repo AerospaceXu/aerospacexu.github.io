@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="徐航宇的个人博客">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        Vue 的 watch 和 computed 有什么关系和区别？ - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Love Code / Love Design </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/head.png" />
+        </div>
+        <div class="name">
+            <i>徐航宇</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Vue-%E7%9A%84-watch-%E5%92%8C-computed-%E6%9C%89%E4%BB%80%E4%B9%88%E5%85%B3%E7%B3%BB%E5%92%8C%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">Vue 的 watch 和 computed 有什么关系和区别？</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Love Code / Love Design </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Vue 的 watch 和 computed 有什么关系和区别？
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-07-28 01:42:00</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#JavaScript" title="JavaScript">JavaScript</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <h1 id="Vue-的-watch-和-computed-有什么关系和区别？"><a href="#Vue-的-watch-和-computed-有什么关系和区别？" class="headerlink" title="Vue 的 watch 和 computed 有什么关系和区别？"></a>Vue 的 watch 和 computed 有什么关系和区别？</h1><p>本文写于 2020 年 7 月 28 日</p>
+<p><strong>“<code>computed</code> 是计算属性”</strong>，请牢记这句话。</p>
+<p>很多时候 <code>computed</code> 看上去就和一个方法一样，但是实际上它是「属性」。</p>
+<p><code>computed</code> 会根据它所依赖的数据<strong>动态显示</strong>新的计算结果。并且这个计算结果会被缓存，只有在其依赖的属性值改变之后，下一次再去获取 <code>computed</code> 的值时才会重新调用对应的 <code>getter</code> 来计算。</p>
+<p>我们为什么需要 <code>computed</code>？</p>
+<p>我们可以在 template 模板中的 <code>&#123;&#123; &#125;&#125;</code> 中写上任何 JS 的计算，为何需要 <code>computed</code>？</p>
+<p>当然是为了好维护项目啦。</p>
+<p>在模版中放入太多声明式的逻辑会让模板过重，尤其当在页面中使用大量复杂的逻辑表达式处理数据时，会对页面的<strong>可维护性</strong>造成很大的影响。</p>
+<p><code>computed</code> 的设计初衷正是用于解决此类问题。</p>
+<p>但是我们经常会用到 <code>watch</code> 语法，它是用来监听数据变化的。</p>
+<p>例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a: <span class="function"><span class="keyword">function</span>(<span class="params">val</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.b = a + val;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这是啥意思呢，就是当 <code>data</code> 中的 <code>a</code> 变量变化时，我们获取到新的值，将新值作为 <code>val</code> 参数传入函数，然后进行一系列操作。</p>
+<p>Vue 在文档中的“计算属性 vs 侦听属性”一节中只是短短提了一下，有时候 computed 会比 watch 更高效。</p>
+<p>而我的理解是：</p>
+<ul>
+<li>计算属性是由 <code>data</code> 中的已知值，得到的一个新值。这个新值只会根据已知值的变化而变化，其他不相关的数据的变化不会影响该新值；</li>
+<li>计算属性不在 <code>data</code> 中，计算属性新值的相关已知值在 <code>data</code> 中。</li>
+</ul>
+<p>也就是说计算属性 computed 是：别人变化影响我自己。</p>
+<p>而侦听属性呢？</p>
+<ul>
+<li>监听 <code>data</code> 中数据的变化；</li>
+<li>监听的数据就是 <code>data</code> 中的已知值。</li>
+</ul>
+<p>也就是说侦听属性 <code>watch</code> 是：我的变化影响别人。</p>
+<p>那么总结一下，watch 擅长处理的场景是<strong>一个数据影响多个数据</strong>；computed 擅长处理的场景是<strong>一个数据受多个数据影响</strong>。</p>
+<p>（完）</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

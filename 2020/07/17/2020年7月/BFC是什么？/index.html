@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="徐航宇的个人博客">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        BFC 是什么？ - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Love Code / Love Design </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/head.png" />
+        </div>
+        <div class="name">
+            <i>徐航宇</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#BFC-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">BFC 是什么？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%B8%B8%E8%A7%81%E7%9A%84%E5%B8%83%E5%B1%80%E6%96%B9%E6%A1%88"><span class="toc-text">1 常见的布局方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E6%96%87%E6%A1%A3%E6%B5%81%EF%BC%88%E6%99%AE%E9%80%9A%E6%B5%81-normal-flow%EF%BC%89"><span class="toc-text">1.1 文档流（普通流 normal flow）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E6%B5%AE%E5%8A%A8%EF%BC%88float%EF%BC%89"><span class="toc-text">1.2 浮动（float）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E7%BB%9D%E5%AF%B9%E5%AE%9A%E4%BD%8D%EF%BC%88absolute-positioning%EF%BC%89"><span class="toc-text">1.3 绝对定位（absolute positioning）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-BFC"><span class="toc-text">2 BFC</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Love Code / Love Design </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        BFC 是什么？
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-07-17 23:19:00</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#CSS" title="CSS">CSS</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <h1 id="BFC-是什么？"><a href="#BFC-是什么？" class="headerlink" title="BFC 是什么？"></a>BFC 是什么？</h1><p>本文写于 2020 年 7 月 17 日</p>
+<p>总有同学问我：“这个 div 为什么会插出来？为什么 float 的 div 这么不好操作？”。这其实就是没有深入理解 <strong>BFC</strong> 而造成的后果。</p>
+<p>BFC，全名 Block Formatting Context，译为<strong>块格式化上下文</strong>。</p>
+<p>当我第一次看到这个中文的时候，我觉得这简直就是<strong>直译</strong>啊！太赤裸裸了！并且翻译过来的这个词语反而让我看不懂了——到底是“块/格式化/上下文”还是“块格式化/上下文”？</p>
+<p>看看英语才能明白，是“块/格式化/上下文”。接下来我们要来寻找答案了，BFC 是什么？</p>
+<p>第一次接触到这个问题，首选自然是 MDN（求求你们了不要在 CSDN 上看了）：</p>
+<blockquote>
+<p>BFC 是 Web 页面的可视 CSS 渲染的一部分，是块盒子的布局过程发生的区域，也是浮动元素与其他元素交互的区域。 —— MDN</p>
+</blockquote>
+<p>我们来分析几个问题。</p>
+<p>首先，「块格式化上下文」究竟是一个过程还是一个结果？BFC 是指我去「块格式化」「上下文」，还是指的是，「被块格式化」的「上下文」？</p>
+<p>关于这一点，上面写的 MDN 的说法就可以给我们解答，<strong>「块格式化上下文」（以下皆用 BFC 来代替称呼）是一个被创建出来的区域</strong>。</p>
+<p>其次，我们做网页为什么需要 BFC 呢？一个概念，如果脱离了实际运用，那我们学来干啥？仅仅为了面试吗？看看 MDN 的解答：</p>
+<blockquote>
+<p>块格式化上下文对浮动定位与清除浮动都很重要。</p>
+<p>浮动定位和清除浮动时只会应用于同一个 BFC 内的元素。</p>
+<p>浮动不会影响其它 BFC 中元素的布局，而清除浮动只能清除同一 BFC 中在它前面的元素的浮动。</p>
+<p>外边距折叠（Margin collapsing）也只会发生在属于同一 BFC 的块级元素之间。</p>
+<p>—— MDN</p>
+</blockquote>
+<p>好长一串！不需要全看，第一句话其实就已经点明了 BFC 的具体用途，清除浮动带来的各种奇怪副作用。</p>
+<p>CSS 是一个难以捉摸的语言。对于新人来说，CSS 就像是大海一样：用的顺手的时候风平浪静、万里无云；用的不顺的时候乌云滚滚、巨浪滔天。很多人刚学前端就被 CSS 拍碎了船，尸沉大海。</p>
+<p>浮动就是一个学习早期就会碰到的副作用。</p>
+<p>例如我们用一个 div 包裹着三个 div，并且希望他们可以横向排列。</p>
+<p>假设规定必须使用 <code>float: left;</code> 进行操作，那么我们就会发现一个神奇的现象：外层的 div 只有宽，没有高，并且无法设置 margin。</p>
+<p>这就是浮动的<strong>副作用</strong>。</p>
+<h2 id="1-常见的布局方案"><a href="#1-常见的布局方案" class="headerlink" title="1 常见的布局方案"></a>1 常见的布局方案</h2><p>Box 是 CSS 的布局基本单位，即一个网页应该是由很多很多的 Box 构成的。</p>
+<p>而 Box 的各种 CSS 属性，决定了 Box 的类型。不同的 Box 会以不同的方式进行渲染。如何处理这些渲染方式，就是我们的布局重点了。</p>
+<p>通常我们会使用三种布局方式。</p>
+<h3 id="1-1-文档流（普通流-normal-flow）"><a href="#1-1-文档流（普通流-normal-flow）" class="headerlink" title="1.1 文档流（普通流 normal flow）"></a>1.1 文档流（普通流 normal flow）</h3><blockquote>
+<p>在普通流中，元素按照其在 HTML 中的先后位置至上而下布局，在这个过程中，行内元素水平排列，直到当行被占满然后换行，块级元素则会被渲染为完整的一个新行，除非另外指定，否则所有元素默认都是普通流定位，也可以说，普通流中元素的位置由该元素在 HTML 文档中的位置决定。</p>
+</blockquote>
+<h3 id="1-2-浮动（float）"><a href="#1-2-浮动（float）" class="headerlink" title="1.2 浮动（float）"></a>1.2 浮动（float）</h3><blockquote>
+<p>在浮动布局中，元素首先按照普通流的位置出现，然后根据浮动的方向尽可能的向左边或右边偏移，其效果与印刷排版中的文本环绕相似。</p>
+</blockquote>
+<h3 id="1-3-绝对定位（absolute-positioning）"><a href="#1-3-绝对定位（absolute-positioning）" class="headerlink" title="1.3 绝对定位（absolute positioning）"></a>1.3 绝对定位（absolute positioning）</h3><blockquote>
+<p>在绝对定位布局中，元素会整体脱离普通流，因此绝对定位元素不会对其兄弟元素造成影响，而元素具体的位置由绝对定位的坐标决定。</p>
+</blockquote>
+<p>以前我们会非常多的用到浮动和绝对定位进行布局，但是人们渐渐的发现这两种方案实在是太多太多副作用了，让开发者苦不堪言。</p>
+<p>所以现在流行的 Flex 布局、Grid 布局，都是普通流的布局。再在此基础之上使用绝对定位，事倍功半。</p>
+<h2 id="2-BFC"><a href="#2-BFC" class="headerlink" title="2 BFC"></a>2 BFC</h2><p>简单来看 BFC 的布局规则是：</p>
+<ol>
+<li>内部的 Box 会在垂直方向依次排序；</li>
+<li>Box 的垂直方向距离由 Margin 决定，<strong>如果两个相邻的 Box 属于同一个 BFC，那么相邻的 margin 会重叠</strong>；</li>
+<li>计算高度时，浮动元素也会参与计算；</li>
+<li>BFC 是独立的容器，内部不会影响外部，反之亦然。</li>
+</ol>
+<p>总结一下，BFC 是页面中的一块渲染区域，并且有一套自己的渲染规则，它决定了其子元素将如何定位，以及和其他元素的关系和相互作用。</p>
+<p>可以理解为 BFC 就是<strong>一个封闭的</strong>大盒子，箱子内部的元素无论如何倒腾，都不会影响到外部的其他的箱子。</p>
+<p><strong>那么如何创建一个 BFC 呢？</strong>或者说 BFC 的创建规则是什么呢？</p>
+<p>MDN 文档为我们列出了如下几种解决方案：</p>
+<ul>
+<li>根元素（<html>）</li>
+<li>浮动元素（元素的 float 不是 none）</li>
+<li>绝对定位元素（元素的 position 为 absolute 或 fixed）</li>
+<li>行内块元素（元素的 display 为 inline-block）</li>
+<li>表格单元格（元素的 display 为 table-cell，HTML 表格单元格默认为该值）</li>
+<li>表格标题（元素的 display 为 table-caption，HTML 表格标题默认为该值）</li>
+<li>匿名表格单元格元素（元素的 display 为 table、table-row、 table-row-group、table-header-group、table-footer-group（分别是 HTML table、row、tbody、thead、tfoot 的默认属性）或 inline-table）</li>
+<li>overflow 值不为 visible 的块元素</li>
+<li>display 值为 flow-root 的元素</li>
+<li>contain 值为 layout、content 或 paint 的元素</li>
+<li>弹性元素（display 为 flex 或 inline-flex 元素的直接子元素）</li>
+<li>网格元素（display 为 grid 或 inline-grid 元素的直接子元素）</li>
+<li>多列容器（元素的 column-count 或 column-width 不为 auto，包括 column-count 为 1）</li>
+<li>column-span 为 all 的元素始终会创建一个新的 BFC，即使该元素没有包裹在一个多列容器中（标准变更，Chrome bug）。</li>
+</ul>
+<p>也有网友也整理的简化版本：</p>
+<ul>
+<li>body 根元素</li>
+<li>浮动元素：float 除 none 以外的值</li>
+<li>绝对定位元素：position (absolute、fixed)</li>
+<li>display 为 inline-block、table-cells、flex</li>
+<li>overflow 除了 visible 以外的值 (hidden、auto、scroll)</li>
+</ul>
+<p>所以归根结底，BFC 有什么用？</p>
+<p><strong>1. 阻止元素被浮动元素覆盖</strong></p>
+<p>经常当我们 <code>float: left;</code> 之后，正常流的 div 就会被浮动的 div 所遮挡。如果通过设置 div 的 CSS 触发 BFC，就可以阻止浮动的盒子遮挡正常流。</p>
+<p><strong>2. 可以包含浮动元素</strong></p>
+<p>一般情况下，用一个 div 包裹另一个浮动的 div 时，外层的 div 是无法被撑开的。但通过各种方式让外层成为 BFC，就可以消除浮动带来的副作用。</p>
+<p><strong>3. 消除 margin 坍塌（margin-collapse）</strong></p>
+<p>当我们发现相邻的两个元素 margin 重叠，说明他们可能是隶属于同一个 BFC 的子元素，我们只需要将他们都变成 BFC，即可消除 margin 的坍塌现象。</p>
+<p>（完）</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
