@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="徐航宇的个人博客">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        一探Vue数据响应式原理 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Love Code / Love Design </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/head.png" />
+        </div>
+        <div class="name">
+            <i>徐航宇</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E6%8E%A2-Vue-%E6%95%B0%E6%8D%AE%E5%93%8D%E5%BA%94%E5%BC%8F%E5%8E%9F%E7%90%86"><span class="toc-text">一探 Vue 数据响应式原理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%81%B7%E5%81%B7%E5%8F%98%E5%8C%96%E7%9A%84-data"><span class="toc-text">1 偷偷变化的 data</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%9A%84%E7%94%B1%E6%9D%A5"><span class="toc-text">2 (...) 的由来</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%88%A9%E7%94%A8-Object-defineProperty-%E5%AE%9E%E7%8E%B0%E4%BB%A3%E7%90%86"><span class="toc-text">3 利用 Object.defineProperty() 实现代理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%9B%9E%E5%88%B0-Vue"><span class="toc-text">4 回到 Vue</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Vue-%E6%95%B0%E6%8D%AE%E5%93%8D%E5%BA%94%E5%BC%8F%E7%9A%84-Bug"><span class="toc-text">5 Vue 数据响应式的 Bug</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Love Code / Love Design </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        一探Vue数据响应式原理
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-08-05 16:50:59</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#JavaScript" title="JavaScript">JavaScript</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <h1 id="一探-Vue-数据响应式原理"><a href="#一探-Vue-数据响应式原理" class="headerlink" title="一探 Vue 数据响应式原理"></a>一探 Vue 数据响应式原理</h1><p>本文写于 2020 年 8 月 5 日</p>
+<p>相信在很多新人第一次使用 Vue 这种框架的时候，就会被其修改数据便自动更新视图的操作所震撼。</p>
+<p>Vue 的文档中也这么写道：</p>
+<blockquote>
+<p>Vue 最独特的特性之一，是其非侵入性的响应式系统。数据模型仅仅是普通的 JavaScript 对象。而当你修改它们时，视图会进行更新。</p>
+</blockquote>
+<p>单看这句话，像我这种菜鸟程序员必然是看不懂的。我只知道，在 <code>new Vue()</code> 时传入的 <code>data</code> 属性一旦产生变化，那么在视图里的变量也会随之而变。</p>
+<p>但这个变化是如何实现的呢？接下来让我们，一探究竟。</p>
+<h2 id="1-偷偷变化的-data"><a href="#1-偷偷变化的-data" class="headerlink" title="1 偷偷变化的 data"></a>1 偷偷变化的 data</h2><p>我们先来新建一个变量：<code>let data = &#123; msg: &#39;hello world&#39; &#125;</code>。</p>
+<p>接着我们将这个 data 传给 Vue 的 data：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> data = &#123; <span class="attr">msg</span>: <span class="string">&#x27;hello world&#x27;</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*****留空处*****/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    showData() &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(data)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>这看似是非常平常的操作，但是我们在触发 showData 的时候，会发现打出来 data 不太对劲：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">msg: (...)</span><br><span class="line">__ob__: Observer &#123;<span class="attr">value</span>: &#123;…&#125;, <span class="attr">dep</span>: Dep, <span class="attr">vmCount</span>: <span class="number">1</span>&#125;</span><br><span class="line">get msg: ƒ reactiveGetter()</span><br><span class="line">set msg: ƒ reactiveSetter(newVal)</span><br><span class="line">__proto__: <span class="built_in">Object</span></span><br></pre></td></tr></table></figure>
+
+<p>它不仅多了很多没见过的属性，还把里面的 <code>msg: hello world</code> 变成了 <code>msg: (...)</code>。</p>
+<p>接下来我们尝试在留空处打印出 data，即在定义完 data 之后立即将其打印。</p>
+<p>但是很不幸，打印出来依然是上面这个不对劲的值。</p>
+<p>可是很明显，当我们不去 <code>new Vue()</code>，并且传入 data 的时候，data 的打印结果绝对不是这样。</p>
+<p>所以我们可以尝试利用 <code>setTimeout()</code> 将 <code>new Vue()</code> 延迟 3 秒执行。</p>
+<p>这个时候我们就会惊讶的发现：</p>
+<ol>
+<li>当我们在 3s 内点开 console 的结果时，data 是普通的形式；</li>
+<li>当我们在 3s 后点开 console 的结果时，data 又变成了奇怪的形式。</li>
+</ol>
+<p><strong>这说明就是 <code>new Vue()</code> 的过程中，Vue 偷偷的对 data 进行了修改！正是这个修改，让 data 的数据，变成了响应式数据。</strong></p>
+<h2 id="2-的由来"><a href="#2-的由来" class="headerlink" title="2 (...) 的由来"></a>2 <code>(...)</code> 的由来</h2><p>为什么好好的一个 <code>msg</code> 属性会变成 <code>(...)</code> 呢？</p>
+<p>这就涉及到了 ES6 中的 getter 和 setter。（如果理解 getter/setter，可跳至下一节）</p>
+<p>一般我们如果需要计算后的值，会定义一个函数，例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  number: <span class="number">5</span>,</span><br><span class="line">  double() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.number * <span class="number">2</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>在使用的时候，我们写上 <code>obj.double(obj.number)</code> 即可。</p>
+<p>但是函数是需要加括号的，我太懒了，以至于括号都不想要了。</p>
+<p>于是就有了 getter 方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  number: <span class="number">5</span>,</span><br><span class="line">  <span class="keyword">get</span> <span class="title">double</span>() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.number * <span class="number">2</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> newNumber = obj.double;</span><br></pre></td></tr></table></figure>
+
+<p>这样一来，就能够不需要括号，就可以得到 return 的值。</p>
+<p>setter 同理：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  number: <span class="number">5</span>,</span><br><span class="line">  <span class="keyword">set</span> <span class="title">double</span>(<span class="params">value</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">this</span>.number * <span class="number">2</span> != value;)</span><br><span class="line">    <span class="built_in">this</span>.number = value;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">obj.double = obj.number * <span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+
+<p>由此我们可以看出：通过 setter，我们可以达到<strong>给赋值设限</strong>的效果，例如这里我就要求新值必须是原值的两倍才可以。</p>
+<p>但经常的，我们会用 getter/setter 来<strong>隐藏一个变量</strong>。</p>
+<p>比如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  _number: <span class="number">5</span>,</span><br><span class="line">  <span class="keyword">get</span> <span class="title">number</span>() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>._number;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="keyword">set</span> <span class="title">number</span>(<span class="params">value</span>) &#123;</span><br><span class="line">    <span class="built_in">this</span>._number = value;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>这个时候我们打印出 obj，就会惊讶的发现 <code>(...)</code> 出现了：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">number: (...)</span><br><span class="line">_number: <span class="number">5</span></span><br></pre></td></tr></table></figure>
+
+<p>现在我们明白了，Vue 偷偷做的事情，就是把 data 里面的数据全变成了 getter/setter。</p>
+<h2 id="3-利用-Object-defineProperty-实现代理"><a href="#3-利用-Object-defineProperty-实现代理" class="headerlink" title="3 利用 Object.defineProperty() 实现代理"></a>3 利用 <code>Object.defineProperty()</code> 实现代理</h2><p>这个时候我们想一个问题，原来我们可以通过 <code>obj.c = &#39;c&#39;;</code> 来定义 c 的值——即使 c 本身不在 obj 中。</p>
+<p>但如何定义一个 getter/setter 呢？答：使用 <code>Object.defineProperty()</code>。</p>
+<p><code>Object.defineProperty()</code> 方法会直接在一个对象上定义一个新属性，或者修改一个对象的现有属性，并返回此对象。</p>
+<p>例如我们上面写的 <code>obj.c = &#39;c&#39;;</code>，就可以通过</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  a: <span class="string">&#x27;a&#x27;</span>,</span><br><span class="line">  b: <span class="string">&#x27;b&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(obj, <span class="string">&#x27;c&#x27;</span>, &#123;</span><br><span class="line">  value: <span class="string">&#x27;c&#x27;</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p><code>Object.defineProperty()</code> 接收三个参数：第一个是要定义属性的对象；第二个是要定义或修改的属性的名称或 Symbol；第三个则是要定义或修改的属性描述符。</p>
+<p>在第三个参数中，可以接收多个属性，<code>value</code> 代表「值」，除此之外还有 <code>configurable</code>, <code>enumerable</code>, <code>writable</code>, <code>get</code>, <code>set</code> 一共六个属性。</p>
+<p>这里我们只看 <code>get</code> 与 <code>set</code>。</p>
+<p>之前我们说了，通过 getter/setter 我们可以把不想让别人直接操作的数据“藏起来”。</p>
+<p>可是本质上，我们只是在前面加了一个 <code>_</code> 而已，直接访问是可以绕过我们的 <code>getter/setter</code> 的！</p>
+<p>那么我们怎么办呢？</p>
+<p><strong>利用代理。</strong>这个代理不是 ES6 新增的 <code>Proxy</code>，而是设计模式的一种。</p>
+<p>我们刚刚为什么可以去修改我们“藏起来”的属性值？</p>
+<p>因为我们知道它的名字呀！如果我<strong>不给他名字</strong>，自然别人就不可能修改了。</p>
+<p>例如我们写一个函数，然后把数据传进去：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">proxy(&#123; <span class="attr">a</span>: <span class="string">&#x27;a&#x27;</span> &#125;)</span><br></pre></td></tr></table></figure>
+
+<p>这样一来我们的 <code>&#123; a: &#39;a&#39; &#125;</code> 就根本没有名字了，无从改起！</p>
+<p>接下来我们在定义 <code>proxy</code> 函数时，可以<strong>新建一个空对象</strong>，然后遍历传入的值，分别进行 <code>Object.defineProperty()</code> 以<strong>将传入的对象的 keys 作为 getter/setter 赋给新建的空对象</strong>。</p>
+<p>最后，我们 <code>return</code> 这个对象即可。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> data = proxy(&#123;</span><br><span class="line">  a: <span class="string">&#x27;a&#x27;</span>,</span><br><span class="line">  b: <span class="string">&#x27;b&#x27;</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">proxy</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> obj = &#123;&#125;;</span><br><span class="line">  <span class="keyword">const</span> keys = <span class="built_in">Object</span>.keys(data);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; keys.length; i++) &#123;</span><br><span class="line">    <span class="built_in">Object</span>.defineProperty(obj, keys[i], &#123;</span><br><span class="line">      get() &#123;</span><br><span class="line">        <span class="keyword">return</span> data[keys[i]];</span><br><span class="line">      &#125;,</span><br><span class="line">      set(value) &#123;</span><br><span class="line">        <span class="keyword">if</span> (value &lt; <span class="number">0</span>) <span class="keyword">return</span>;</span><br><span class="line">        data[keys[i]] = value;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样一来，我们一开始声明的 <code>data</code>，就是我们 <code>return</code> 的对象了。在这个对象里，没有原始的数据，别人无法绕过 getter/setter 进行操作！</p>
+<p><strong>但是往往并没有这么简单，如果我一定需要一个变量名呢？</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> sourceData = &#123;</span><br><span class="line">  a: <span class="string">&#x27;a&#x27;</span>,</span><br><span class="line">  b: <span class="string">&#x27;b&#x27;</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> data = proxy(sourceData);</span><br></pre></td></tr></table></figure>
+
+<p>如此一来，通过直接操作 <code>sourceData.a</code>，时可以直接绕过我们在 <code>proxy</code> 中设置的 <code>set a</code> 进行赋值的。这个时候我们怎么处理？</p>
+<p>很简单嘛，当我们遍历传入的数据时，我们可以对传入的数据新增 getter/setter，此后<strong>原始的数据就会被 getter/setter 所替代</strong>。</p>
+<p>在刚刚的代码中，我们在循环的刚开始添加这样一段代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="comment">/*......*/</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> value = data[keys[i]];</span><br><span class="line">  <span class="built_in">Object</span>.defineProperty(data, keys[i], &#123;</span><br><span class="line">    get() &#123;</span><br><span class="line">      <span class="keyword">return</span> value;</span><br><span class="line">    &#125;,</span><br><span class="line">    set(newValue) &#123;</span><br><span class="line">      <span class="keyword">if</span> (newValue &lt; <span class="number">0</span>) <span class="keyword">return</span>;</span><br><span class="line">      value = newValue;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="comment">/*......*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这是什么意思呢？</p>
+<p>我们<strong>利用了闭包，将原始值单独拎出来</strong>，每一次对原始属性进行读写，其实都是 get 和 set 在读取闭包时被拎出来的值。</p>
+<p>那么不管别人是操作我们的 <code>let data = proxy(sourceData);</code> 的 data，还是操作 sourceData，都会被我们的 getter/setter 所拦截。</p>
+<h2 id="4-回到-Vue"><a href="#4-回到-Vue" class="headerlink" title="4 回到 Vue"></a>4 回到 Vue</h2><p>我们刚刚写的代码是这样的：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> data = proxy(&#123;</span><br><span class="line">  a: <span class="string">&#x27;a&#x27;</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">proxy</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>那如果我改成这样呢：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> data = proxy(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    a: <span class="string">&#x27;a&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">proxy</span>(<span class="params">&#123; data &#125;</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 结构赋值</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>是不是和 Vue 就非常非常像了！</p>
+<p><code>const vm = new Vue(&#123; data: &#123;&#125; &#125;)</code> 也是让 <code>vm</code> 成为 <code>data</code> 的代理，并且就算你从外部将数据传给 data，也会被 Vue 所捕捉。</p>
+<p>而在每一次捕获到你操作数据之后，就会对需要改变的 UI 进行重新渲染。</p>
+<p>同理，Vue 对 computed 和 watch 也存在着各种偷偷的处理。</p>
+<h2 id="5-Vue-数据响应式的-Bug"><a href="#5-Vue-数据响应式的-Bug" class="headerlink" title="5 Vue 数据响应式的 Bug"></a>5 Vue 数据响应式的 Bug</h2><p>如果我们的数据是这样：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">data: &#123;</span><br><span class="line">  obj: &#123;</span><br><span class="line">    a: <span class="string">&#x27;a&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们在 Vue 的 template 里却写了 <code>&lt;div&gt;&#123;&#123; obj.b &#125;&#125;&lt;div&gt;</code> 会怎样？</p>
+<p>Vue 对于不存在或者为 undefined 和 null 的数据是不予以显示的。但是当我们往 obj 中新增 b 的时候，他会显示吗？</p>
+<p><strong>写法一：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    obj: &#123;</span><br><span class="line">      a: <span class="string">&#x27;a&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    changeObj() &#123;</span><br><span class="line">      <span class="built_in">this</span>.obj.b = <span class="string">&#x27;b&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>我们可以给一个按钮绑定 <code>changeObj</code> 事件，但是很遗憾，这样并不能使视图中的 <code>obj.b</code> 显示出来。</p>
+<p>回想一下刚刚我们对于数据的处理，是不是只遍历了外层？这就是因为 Vue 并没有对 b 进行监听，他根本不知道你的 b 是如何变化的，自然也就不会去更新视图层了。</p>
+<p><strong>写法 2:</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    obj: &#123;</span><br><span class="line">      a: <span class="string">&#x27;a&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    changeObj() &#123;</span><br><span class="line">      <span class="built_in">this</span>.obj.a = <span class="string">&#x27;a2&#x27;</span></span><br><span class="line">      <span class="built_in">this</span>.obj.b = <span class="string">&#x27;b&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>我们仅仅只是新增了一行代码，在改变 b 之前先改变了 a，居然就让 b 实现了更新！</p>
+<p>这是为什么？</p>
+<p><strong>因为视图更新其实是异步的。</strong></p>
+<p>当我们让 <code>a</code> 从 <code>&#39;a&#39;</code> 变成 <code>&#39;a2&#39;</code> 时，Vue 会监听到这个变化，<strong>但是 Vue 并不能马上更新视图</strong>，因为 Vue 是使用 <code>Object.defineProperty()</code> 这样的方式来监听变化的，监听到变化后会创建一个视图更新任务到任务队列里。</p>
+<p>所以在视图更新之前，<strong>要先把余下的代码运行完才行</strong>，也就是会运行 <code>b = &#39;b&#39;</code>。</p>
+<p>最后等到视图更新的时候，由于 Vue 会去做 diff 算法，于是 Vue 就会发现 a 和 b 都变了，自然会去更新相对应的视图。</p>
+<p>但是这并不是我们解决问题的办法，写法 2 充其量只能算是“副作用”。</p>
+<p>Vue 其实提供了方法让我们来新增以前没有生命的属性：<code>Vue.set()</code> 或者 <code>this.$set()</code>。</p>
+<p><code>Vue.set(this.obj, &#39;b&#39;, &#39;b&#39;);</code> 会代替我们进行 <code>obj.b = &#39;b&#39;;</code>，然后监听 b 的变化，触发视图更新。</p>
+<p><strong>那数组怎么响应呢？</strong></p>
+<p>每当我们往数组里新增元素的时候，数组就在不断的变长。对于没有声明的数组下标，很明显 Vue 不会给予监听呀。</p>
+<p>比如 <code>a: [1, 2, 3]</code>，当我新增一个元素，让 <code>a === [1, 2, 3, 4]</code> 的时候，**<code>a[3]</code> 是不会被监听的**。</p>
+<p>总不能每次 <code>push</code> 数组，都要手写刚刚说的 <code>Vue.set</code> 方法吧。</p>
+<p><strong>可实际操作中，我们发现并没有呀，Vue 监听了新增的数据。</strong></p>
+<p>这是因为 Vue 又偷偷的干了一件事儿，它把你原本的数组方法给改了一些。</p>
+<ul>
+<li>push()</li>
+<li>pop()</li>
+<li>shift()</li>
+<li>unshift()</li>
+<li>splice()</li>
+<li>sort()</li>
+<li>reverse()</li>
+</ul>
+<p>在 Vue 中的数组所带的这七个方法都不是原生的方法了。Vue 考虑到这些操作极为常用，所在中间为我们添加了监听。</p>
+<p>讲到这里，相信大家对 Vue 的响应式原理应该有了更深的认识了。</p>
+<p>（完）</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
