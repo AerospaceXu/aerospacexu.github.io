@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="徐航宇的个人博客">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        初学者都能懂得Git说明 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Love Code / Love Design </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/head.png" />
+        </div>
+        <div class="name">
+            <i>徐航宇</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%9D%E5%AD%A6%E8%80%85%E9%83%BD%E8%83%BD%E6%87%82%E5%BE%97-Git-%E8%AF%B4%E6%98%8E"><span class="toc-text">初学者都能懂得 Git 说明</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-Git%EF%BC%9F"><span class="toc-text">什么是 Git？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git-%E7%AC%AC%E4%B8%80%E6%AD%A5%EF%BC%9A%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6"><span class="toc-text">Git 第一步：新建一个文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git-%E7%AC%AC%E4%BA%8C%E6%AD%A5%EF%BC%9A%E6%94%B6%E9%9B%86%E6%9B%B4%E6%94%B9"><span class="toc-text">Git 第二步：收集更改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git-%E7%AC%AC%E4%B8%89%E6%AD%A5%EF%BC%9A%E6%89%93%E5%8C%85%E6%9B%B4%E6%94%B9"><span class="toc-text">Git 第三步：打包更改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git-%E7%AC%AC%E5%9B%9B%E6%AD%A5%EF%BC%9A%E5%88%86%E4%BA%AB%E6%82%A8%E7%9A%84%E4%BF%AE%E6%94%B9"><span class="toc-text">Git 第四步：分享您的修改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git-%E7%AC%AC%E4%BA%94%E6%AD%A5%EF%BC%9A%E8%8E%B7%E5%8F%96%E6%9C%80%E6%96%B0%E7%9A%84%E4%BF%AE%E6%94%B9"><span class="toc-text">Git 第五步：获取最新的修改</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Love Code / Love Design </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        初学者都能懂得Git说明
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-08-10 09:40:51</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#互联网产品" title="互联网产品">互联网产品</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#科技改变生活" title="科技改变生活">科技改变生活</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <h1 id="初学者都能懂得-Git-说明"><a href="#初学者都能懂得-Git-说明" class="headerlink" title="初学者都能懂得 Git 说明"></a>初学者都能懂得 Git 说明</h1><p>本文写于 2020 年 8 月 10 日</p>
+<p>网上有很多非常优秀的 Git 教程，但是他们都是面向有一定基础的开发者的。</p>
+<p>可是对于没什么基础的初学者甚至是偶尔操作代码的设计师而言，Git 也是必须掌握的技能！</p>
+<p>注意，这不是一个教程，而是一个<strong>说明</strong>，仅仅针对初学者和设计师或其他不太懂代码却需要一点点 Git 基础概念的人。</p>
+<h2 id="什么是-Git？"><a href="#什么是-Git？" class="headerlink" title="什么是 Git？"></a>什么是 Git？</h2><p>Git 是一个免费的、开源的代码版本控制系统。</p>
+<p>什么意思呢？免费开源好理解，就是不要钱嘛。那什么叫版本控制系统？</p>
+<p>所谓版本控制，就是当你修改文件之后，你可以让 Git 记住目前的文件内容为一个版本，并且对该版本进行语言描述；当你下一次修改完成，你又可以让 Git 记住当前的文件内容，这又是一个版本，再对对该版本进行语言描述。</p>
+<p>而 Git 的强大就在于，他会记录下你两次版本之间进行的修改，例如你删除了哪些<strong>字符</strong>，都会被 Git 所记录下来。然后你就可以利用 Git 让自己的文件，变回之前的任意一个版本了！</p>
+<p>总而言之，可以理解为，Git 就是关于项目文件中历史版本的注释的集合，以及变化的历史记录。</p>
+<p><strong>你是否需要学习 Git？</strong></p>
+<p>问自己几个问题吧：</p>
+<ul>
+<li>你是否曾经尝试过与其他人同时处理一个项目？</li>
+<li>你是否曾经希望可以将工作回滚到以前的某个版本？</li>
+<li>你是否想了解开发人员为何进行某些更改？</li>
+</ul>
+<p>如果你想解决这些问题，那么就学习 Git 吧。</p>
+<p><strong>Git 第零步</strong></p>
+<p>下载并且安装一个 Git。（网上有太多手把手的教程，此处就不赘述如何安装了）</p>
+<p>新建一个文件夹，将你的终端（或是 CMD 或是 PowerShell 或是 Bash 或是 Zsh）切换到该文件夹下。</p>
+<p>然后输入：<code>git init</code>。这是我们小学二年级就学过的英语：<code>初始化 git</code>。</p>
+<h2 id="Git-第一步：新建一个文件"><a href="#Git-第一步：新建一个文件" class="headerlink" title="Git 第一步：新建一个文件"></a>Git 第一步：新建一个文件</h2><p>对于一个项目，我们通常会新建一个 <code>README.md</code> 文件来向其他开发者简单阐述我们的这个项目。（md 文件是 markdown 文件，一般用于写作，不必深究其中符号的意义）</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># 我的 Git 学习项目</span></span><br><span class="line"></span><br><span class="line">在这个项目中，我将会学习 <span class="code">`git`</span> 的各种用法。</span><br></pre></td></tr></table></figure>
+
+<p>如果你此时使用的是 VSCode 或是其他有图形化 Git 界面的软件，你会看到 Git 的图标出现了一个小小的提示。但是我们不急着去使用图形界面，因为图形界面每家都不同，可是命令行里对 Git 的操作是不会变的，哪些图形界面也只是帮你操作了命令行而已。</p>
+<h2 id="Git-第二步：收集更改"><a href="#Git-第二步：收集更改" class="headerlink" title="Git 第二步：收集更改"></a>Git 第二步：收集更改</h2><p>我们刚刚新建了一个文件，对他新增了内容。对于我们整个项目中，这其实算是一次更改：我们从无文件，更改为了拥有一个 <code>README.md</code> 文件。然后将没有内容的文件，新增了这三行几十个字符。</p>
+<p>接下来我们就可以通过 <code>git add</code> 的命令，来收集我们的更改。</p>
+<p><code>git add README.md</code> 翻译成中文就是 <code>git 来帮我添加一下 README.md 文件</code>。</p>
+<p>完成后是不是没有任何的提示？这就对了。Unix 的哲学是“没有消息就是好消息”</p>
+<p>这个时候我们有一个疑惑，add 既然是添加，那会把我的添加到哪里呢？</p>
+<p>这里添加的位置叫做暂存区。你将暂存区可以理解为一个没有关上的快递盒子。</p>
+<p>如果我们有需要，随时可以把里面的东西拿出来，或者换成其他的东西，或者放更多的东西进去。</p>
+<h2 id="Git-第三步：打包更改"><a href="#Git-第三步：打包更改" class="headerlink" title="Git 第三步：打包更改"></a>Git 第三步：打包更改</h2><p>接下来我们要使用 <code>git commit</code> 命令了，它是为了将我们暂存的文件，作为一个版本，并且作出说明后，进行保存与管理。</p>
+<p><code>git commit -m &quot;新增了 README 文件&quot;</code>，翻译成中文就是 <code>git 帮我提交一下现在的代码，这次提交我的备注是“新增了 README 文件”</code>。</p>
+<p>刚刚说过了，我们 <code>git add</code> 相当于把东西收纳到没有关上的快递盒子里，<code>git commit</code> 就相当于把这个快递盒子给打包好，然后贴上快递信息。</p>
+<p>这个信息非常重要，刚刚的 <code>-m</code> 就是 message 的意思。我希望任何时候你都要写这份“快递信息”——如果不想写，是有办法的，但是我不会教给你。</p>
+<p>现在我们回顾一下刚刚的操作。</p>
+<p>首先我们通过 add 命令，将我们作出修改的文件添加到了暂存区；然后通过 commit 命令将其打包，存为了一个版本。Git 会帮助我们记住这个版本与前一个版本之间进行的所有修改。</p>
+<h2 id="Git-第四步：分享您的修改"><a href="#Git-第四步：分享您的修改" class="headerlink" title="Git 第四步：分享您的修改"></a>Git 第四步：分享您的修改</h2><p>使用 <code>git push</code> 可以将你的项目上传到远端的仓库中。</p>
+<p>我们通常可以使用 GitHub 或者码云。在这两个网站新建账号后，我们可以新建一个仓库，新建完成后，会出现文字提示来告诉我们如何绑定远端和本地。所以在此就不赘述了。</p>
+<p>从此以后，我们每次做完修改，都可以先提交到暂存区，然后 commit 打包，最后 git push 到远端仓库。这样远端仓库就会和本地一样，记录我们的每一次打包。</p>
+<h2 id="Git-第五步：获取最新的修改"><a href="#Git-第五步：获取最新的修改" class="headerlink" title="Git 第五步：获取最新的修改"></a>Git 第五步：获取最新的修改</h2><p>通常我们使用远端仓库是为了和他人协同开发。</p>
+<p>那么如果别人对仓库进行了修改，我们的本地仓库会变嘛？</p>
+<p>不会的，所以我们需要获取最新的更新：<code>git pull</code>。</p>
+<p>在开始工作之前和在 push 更改之前，对项目进行 <code>git pull</code> 是一个好习惯，如果出现了任何冲突都可以及时的进行解决。</p>
+<p><strong>PS：</strong>和他人协同开发时，如果出现冲突，一定不可以无视冲突，强行上传。请务必解决！</p>
+<p>（完）</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
