@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="徐航宇的个人博客">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        滴滴实习面试题 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Love Code / Love Design </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/head.png" />
+        </div>
+        <div class="name">
+            <i>徐航宇</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%BB%B4%E6%BB%B4%E5%AE%9E%E4%B9%A0%E9%9D%A2%E8%AF%95%E9%A2%98"><span class="toc-text">滴滴实习面试题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%89%81%E5%B9%B3%E5%8C%96%E6%95%B0%E7%BB%84"><span class="toc-text">1 扁平化数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%AE%9E%E7%8E%B0-Promise-all"><span class="toc-text">2 实现 Promise.all()</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Love Code / Love Design </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        滴滴实习面试题
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-08-13 10:41:33</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#JavaScript" title="JavaScript">JavaScript</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <h1 id="滴滴实习面试题"><a href="#滴滴实习面试题" class="headerlink" title="滴滴实习面试题"></a>滴滴实习面试题</h1><p>本文写于 2020 年 8 月 13 日</p>
+<p>前两天在滴滴进行了前端实习面试，有几道题卡了一下。</p>
+<h2 id="1-扁平化数组"><a href="#1-扁平化数组" class="headerlink" title="1 扁平化数组"></a>1 扁平化数组</h2><p>一个数组里可能是基本数据类型，也可能是数组，数组里还能嵌套数组，例如：<code>[1, 2, [4, [5, 7]], [[9]]]</code>。</p>
+<p>请将数组扁平化，全部变成一维数组：<code>[1, 2, 4, 5, 7, 9]</code>。</p>
+<p>我第一次听题目的时候没听清，所以直接写了一次遍历，判断是否是数组，没有考虑数组嵌套的情况。</p>
+<p>之后，便采用了递归的方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">flatArr</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> newArr = [];</span><br><span class="line">  <span class="keyword">if</span>(arr.length &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">      <span class="keyword">if</span>(<span class="built_in">Array</span>.isArray(arr[i])) &#123;</span><br><span class="line">        newArr.push(...flatArr(arr[i]));</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        newArr.push(arr[i]);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> newArr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但是实际上，有更好的方法。</p>
+<p><strong>方法一：</strong>递归</p>
+<p>不管怎么样，这种方法的核心思路就是递归。用 <code>for</code> 也好，用 <code>while</code> 也好，都是递归调用。</p>
+<p>比如我们可以利用 <code>reduce</code> 来减少代码行数，这也是我最喜欢的一种方法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">flatArr</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(arr.length &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> arr.reduce(<span class="function">(<span class="params">result, item</span>)=&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> result.concat(<span class="built_in">Array</span>.isArray(item) ? flatten(item) : item);</span><br><span class="line">    &#125;, []);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>代码的基础思路跟上面其实是一模一样的，但是却将代码缩减了至少一半！</p>
+<p>或者说可以用 <code>while</code> 来进行：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">flatten</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">while</span>(arr.some(<span class="function"><span class="params">item</span> =&gt;</span> <span class="built_in">Array</span>.isArray(item))) &#123;</span><br><span class="line">    arr = [].concat(...arr);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但不推荐这么写，因为会对传入的参数进行修改。</p>
+<p><strong>方法二：</strong>偷巧</p>
+<p><code>arr.toString()</code> 返回的是一个字符串，这个字符串是以数组内的元素加上逗号生成的。</p>
+<p>神奇的地方在于，当我们有一个数组为 <code>[1, [2]]</code> 的时候，他并不会变成 <code>&quot;1,[2]&quot;</code>，而是会变成 <code>&quot;1,2&quot;</code>。</p>
+<p>所以我们就可以通过它来扁平化数组：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">flatArr</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(arr.length &gt;= <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> arr.toString().split(<span class="string">&#x27;,&#x27;</span>).map(<span class="function"><span class="params">item</span> =&gt;</span> <span class="built_in">Number</span>.parseFloat(item))</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这种方法不用 <code>toString</code> 用 <code>join(&#39;,&#39;)</code> 的效果是一样的。</p>
+<h2 id="2-实现-Promise-all"><a href="#2-实现-Promise-all" class="headerlink" title="2 实现 Promise.all()"></a>2 实现 <code>Promise.all()</code></h2><p>首先来看 <code>Promise.all()</code> 的用法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> p1 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span>(<span class="comment">/*成功*/</span>) &#123;</span><br><span class="line">    resolve(<span class="number">1</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    reject(<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">const</span> p2 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span>(<span class="comment">/*成功*/</span>) &#123;</span><br><span class="line">    resolve(<span class="number">1</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    reject(<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">const</span> p3 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span>(<span class="comment">/*成功*/</span>) &#123;</span><br><span class="line">    resolve(<span class="number">1</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    reject(<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">Promise</span>.all([p1, p2, p3]).then(<span class="function">(<span class="params">results</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(results);</span><br><span class="line">&#125;, <span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(error);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>只有当三个 Promise 对象都成功时，才会执行 then 方法的第一个函数；只要有一个失败了，就会执行第二个函数。</p>
+<p>对于 <code>Promise.all()</code> 来说，首先接收的是一个可迭代对象。</p>
+<ol>
+<li>接收一个 <code>Promise</code> 实例的数组或具有 <code>Iterator</code> 接口的对象；</li>
+<li>如果元素不是 <code>Promise</code> 对象，则使用 <code>Promise.resolve</code> 转成 <code>Promise</code> 对象，也就意味着如果不是 <code>Promise</code> 对象，就让他变成完成状态的 <code>Promise</code>；</li>
+<li>如果全部成功，状态变为 <code>resolved</code>，返回值将组成一个数组传给回调；</li>
+<li>只要有一个失败，状态就变为 <code>rejected</code>，返回值将直接传递给回调 <code>all()</code> 的返回值也是新的 <code>Promise</code> 对象。</li>
+</ol>
+<p>那我们就好实现了：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">promiseAll</span>(<span class="params">promises</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="built_in">Array</span>.isArray(promises) || !(<span class="keyword">typeof</span> promise === <span class="string">&#x27;string&#x27;</span>)) &#123;</span><br><span class="line">      <span class="keyword">return</span> reject(<span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">&#x27;参数必须是一个可迭代对象，例如数组或者字符串&#x27;</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> resolvedCounter = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">let</span> promiseNum = promises.length;</span><br><span class="line">    <span class="keyword">let</span> resolvedValues = <span class="keyword">new</span> <span class="built_in">Array</span>(promiseNum);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; promiseNum; i++) &#123;</span><br><span class="line">      <span class="built_in">Promise</span>.resolve(promises[i]).then(<span class="function">(<span class="params">value</span>) =&gt;</span> &#123;</span><br><span class="line">        resolvedCounter++;</span><br><span class="line">        resolvedValues[i] = value;</span><br><span class="line">        <span class="keyword">if</span> (resolvedCounter === promiseNum) &#123;</span><br><span class="line">          <span class="keyword">return</span> resolve(resolvedValues);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;, <span class="function">(<span class="params">reason</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> reject(reason);</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>（完）</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
