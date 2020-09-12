@@ -11,7 +11,7 @@
 
     <title>
         
-        关于 - undefined
+        简单讲讲二进制与十进制的转换 - undefined
         
     </title>
 
@@ -75,7 +75,7 @@
                     <span>存档</span>
                 </a>
             </li>
-            <li  class=active >
+            <li >
                 <a href="/about/">
                     <i class="iconfont icon-guanyu2"></i>
                     <span>关于</span>
@@ -91,6 +91,10 @@
             
         </ul>
     </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E8%AE%B2%E8%AE%B2%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%B8%8E%E5%8D%81%E8%BF%9B%E5%88%B6%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="toc-text">简单讲讲二进制与十进制的转换</span></a></li></ol>
+</div>
     
 </div>
 
@@ -116,16 +120,98 @@
     <div class="index-middle">
         <!-- Main Content -->
         
-<div class="post-content no-indent">
-    <p><strong>中国传媒大学本科在读 /</strong></p>
-<p><strong>数字媒体艺术 /</strong></p>
-<p><strong>love coding / love design</strong></p>
-<p>联系博主：<a href="mailto:&#x61;&#x65;&#x72;&#111;&#115;&#x70;&#x61;&#x63;&#x65;&#x78;&#117;&#x40;&#103;&#109;&#97;&#x69;&#108;&#x2e;&#99;&#111;&#x6d;">&#x61;&#x65;&#x72;&#111;&#115;&#x70;&#x61;&#x63;&#x65;&#x78;&#117;&#x40;&#103;&#109;&#97;&#x69;&#108;&#x2e;&#99;&#111;&#x6d;</a></p>
 
-    
-    <div id="comment-container">
+
+<div class="post-container">
+    <div class="post-title">
+        简单讲讲二进制与十进制的转换
     </div>
-    <div id="lv-container">
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-09-12 16:19:44</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#计算机基础知识" title="计算机基础知识">计算机基础知识</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <h1 id="简单讲讲二进制与十进制的转换"><a href="#简单讲讲二进制与十进制的转换" class="headerlink" title="简单讲讲二进制与十进制的转换"></a>简单讲讲二进制与十进制的转换</h1><p>本文写于 2020 年 9 月 12 日</p>
+<p>很多人觉得二进制很奇妙，很难转换，但其实没那么夸张。</p>
+<p>首先看一个简单的十进制数：<code>123</code>。</p>
+<p>对于 <code>123</code> 而言，是 <code>100+20+3</code> 的结果，也就是 <code>1*100+2*10+3*1</code>。</p>
+<p>再进一步拆分成 10^n（十的 n 次方）后就可以表示为 <code>1*10^2+2*10^1+3*10^0</code>。</p>
+<p>这个时候我们发现这里其实是存在某种规则的。</p>
+<p>列个表看看：</p>
+<table>
+<thead>
+<tr>
+<th>10^2</th>
+<th>10^1</th>
+<th>10^0</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<p>那么这是十进制，换成二进制的话，会不会是下面这样呢？</p>
+<table>
+<thead>
+<tr>
+<th>2^2</th>
+<th>2^1</th>
+<th>2^0</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<p>这也就意味着，100、10、1 变成了 4、2、1。当我们继续向后推进，二进制就会变成 8、16……而不是十进制的 1000、10000……</p>
+<p>这个表有啥用呢？</p>
+<p>我们来看几个简单的例子，十进制的 2，在二进制中是就是 10，这点我们非常清楚。</p>
+<p>我们将 10 放入表中：</p>
+<table>
+<thead>
+<tr>
+<th>2^2</th>
+<th>2^1</th>
+<th>2^0</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<p><code>1*2^1+0*2^0</code>，诶？！这不就是 2 吗？</p>
+<p>所以我们现在学会了二进制转十进制的方法，就是<strong>将二进制的每一位，乘上二的位数减一次方后相加</strong>。</p>
+<p>十进制转二进制相对而言要更麻烦一点，也更难想——我们需要解出一个公式：<code>a*1+b*2+c*4+d*8+e*16……</code> 这里的 a、b、c……都表示的是 0 或 1。</p>
+<p>例如 50。可以表示为：<code>0*1+1*2+0*4+0*8+1*16+1*32</code>，所以 50 的二进制为 110010。</p>
+<p>13 呢？可以表示为 <code>1*1+0*2+1*4+1*8</code>，即为 1101。</p>
+<p>（完）</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
     </div>
 </div>
 
@@ -167,7 +253,7 @@
     // We expose some of the variables needed by the front end
     window.hexo_search_path = "search.json"
     window.hexo_root = "/"
-    window.isPost = false
+    window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 

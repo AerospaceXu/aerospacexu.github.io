@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="徐航宇的个人博客">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        Git后续——分支与协作 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Love Code / Love Design </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/head.png" />
+        </div>
+        <div class="name">
+            <i>徐航宇</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜索</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Git-%E5%90%8E%E7%BB%AD%E2%80%94%E2%80%94%E5%88%86%E6%94%AF%E4%B8%8E%E5%8D%8F%E4%BD%9C"><span class="toc-text">Git 后续——分支与协作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%88%86%E6%94%AF"><span class="toc-text">什么是分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E5%88%86%E6%94%AF"><span class="toc-text">为什么需要分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E5%88%86%E6%94%AF"><span class="toc-text">如何使用分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%84%E7%90%86%E5%90%88%E5%B9%B6%E5%86%B2%E7%AA%81"><span class="toc-text">处理合并冲突</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Love Code / Love Design </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Git后续——分支与协作
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2020-09-01 16:21:07</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#互联网产品" title="互联网产品">互联网产品</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <h1 id="Git-后续——分支与协作"><a href="#Git-后续——分支与协作" class="headerlink" title="Git 后续——分支与协作"></a>Git 后续——分支与协作</h1><p>本文写于 2020 年 9 月 1 日</p>
+<p>之前一篇文章写了 Git 的基础用法，但那其实只是「单机模式」，Git 之所以在今天被如此广泛的运用，是脱不开分支系统这一概念的。</p>
+<p>最近几天在滴滴实习，第一次接触到了团队是如何利用 Git 进行协作的。可以说分支系统对于协作来说是重要的一环，接下来就让我们来一窥究竟吧。</p>
+<h2 id="什么是分支"><a href="#什么是分支" class="headerlink" title="什么是分支"></a>什么是分支</h2><p>首先，什么是分支？</p>
+<p>我们之前说了，Git 会记录你的文件修改。你修改了哪一行哪一个字符，只要你进行了 <code>commit</code> 操作，Git 都会帮你记录的清清楚楚。</p>
+<p>而这一系列的 <code>commit</code> 提交是有先后的。所以根据时间，我们可以排出一个<strong>时间轴</strong>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--&gt; 第一次提交 --&gt; 第二次提交 --&gt; 第三次提交 --&gt; ... --&gt; 第 n 次提交</span><br></pre></td></tr></table></figure>
+
+<p>这就是主分支 <code>master</code>。如果你是在命令行里打开存在 git 的目录就会发现，在文件目录的最后显示了一个 <code>master</code>。</p>
+<h2 id="为什么需要分支"><a href="#为什么需要分支" class="headerlink" title="为什么需要分支"></a>为什么需要分支</h2><p>这个时候我们的开发团队突然不是一个人了，有另一个同学加入了项目，你需要和他进行协同开发。</p>
+<p>我们现在面临的是两个需求，A 和 B。你负责 A，他负责 B。</p>
+<p>但是有一个问题，他的 B 需求比较好解决，只需要 1 天就可以完成，可你的 A 需求则需要 5 天时间。</p>
+<p>如果你们俩同时在 <code>master</code> 分支上进行合作就会出现问题。</p>
+<p>比如说你的 A 需求是可以拆分成 3-5 个小块进行 <code>commit</code> 的。（请保证您的每个 <code>commit</code> 不会进行太多的修改，这样便于项目管理与后续查看）那么当你 <code>commit</code> 之后，他面对的将会是你的 A 需求的某一个或者某几个小块的更新，即他的代码会变成不完整的代码。</p>
+<p>具体点来说，你的需求需要 5 天才能完成，第一天你写了 20% 的代码，如果立刻 <code>commit</code>，由于代码还没写完，不完整的代码库会导致另外一个人不能干活。</p>
+<p>还有一点就是代码丢失的风险，如果等你的代码全部写完再一次提交，会存在丢失每天进度的巨大风险！</p>
+<p><strong>这个时候就该分支出场了。</strong></p>
+<h2 id="如何使用分支"><a href="#如何使用分支" class="headerlink" title="如何使用分支"></a>如何使用分支</h2><p>分支就是「平行宇宙」。当你此刻使用 <code>git checkout -b my-first-branch</code> 就会创建一条名为 <code>my-first-branch</code> 的分支，并且切换过去。</p>
+<p>这个分支可以用于记录你这段时间的 <code>commit</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">--&gt; 第一次提交 -------&gt; 第二次提交 ----&gt; 第三次提交 --&gt; ... --&gt; 第 n 次提交</span><br><span class="line">                         ↓</span><br><span class="line">                 分支my-first-branch ----&gt; 分支的第三次提交 ----&gt; 分支的第四次提交</span><br></pre></td></tr></table></figure>
+
+<p>当你完成之后，分支即可通过 <code>git merge &lt;branch-name&gt;</code> 和其他分支进行合并，这样所有在该分支上的操作就会被合并到另一个分支上了。</p>
+<p>这这个分支是属于你自己的分支，别人看不到，还继续在原来的分支上正常工作，而你在自己的分支上干活，想提交就提交，直到开发完毕后，再一次性合并到原来的分支上，这样一来既安全、又不影响别人工作。</p>
+<h2 id="处理合并冲突"><a href="#处理合并冲突" class="headerlink" title="处理合并冲突"></a>处理合并冲突</h2><p>如果你在 readme.txt 中修改了一行，另一个人也修改了 readme.txt 中的同一行。</p>
+<p>这个时候你们合并文件会出现问题吗？</p>
+<p>肯定会呀！Git 会告诉你：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Auto-merging readme.txt</span><br><span class="line">CONFLICT (content): Merge conflict <span class="keyword">in</span> readme.txt</span><br><span class="line">Automatic merge failed; fix conflicts and <span class="keyword">then</span> commit the result.</span><br></pre></td></tr></table></figure>
+
+<p>为了英文不太好的同学，我来翻译一下：readme.txt 文件存在冲突，必须手动解决冲突后再提交。</p>
+<p>我们该怎么查看这个冲突呢？不错，就是 <code>git status</code>，顾名思义嘛，各种状态都可以由他查看。</p>
+<p>除此之外，我们还可以直接看文件，Git 已经帮我们放了点东西上去：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</span><br><span class="line">明月几时有，把酒问青天</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">明月都没有，喝酒不问天</span><br><span class="line">&gt;&gt;&gt;&gt;&gt;&gt;&gt; my-first-branch</span><br></pre></td></tr></table></figure>
+
+<p>Git 会告诉我们几条分支分别在这一句上改了什么，让我们自行判断，自行删除。</p>
+<p>我们分别删掉半句，变成这个样子后：<code>明月几时有，喝酒不问天</code>。再进行 <code>git commit -m &#39;merge conflict&#39;</code>，就可以了。</p>
+<p>这就是分布式管理系统的好处。</p>
+<p>（完）</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
